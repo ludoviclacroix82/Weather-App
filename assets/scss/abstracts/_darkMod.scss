@@ -1,0 +1,23 @@
+.ligther {
+    --primaryColor: #{$ligtherPrimaryColor};
+    --secondaryColor: #{$ligtherSecondaryColor};
+    --backgroundLinear: #{$ligtherBackgroundLinear};
+
+    --primaryColorText: #{$ligtherPrimaryColorText};
+    --secondaryColorText: #{$ligtherSecondaryColorText};
+
+    --svgColor : #{$ligtherSvg};
+    --nowBackground : #{$ligtherNowBackground };
+}
+
+.dark {
+    --primaryColor: #{$darkPrimaryColor};
+    --secondaryColor: #{$darkSecondaryColor};
+    --backgroundLinear: #{$darkBackgroundLinear};
+
+    --primaryColorText: #{$darkPrimaryColorText};
+    --secondaryColorText: #{$darkSecondaryColorText};
+
+    --svgColor : #{$darkSvg};
+    --nowBackground  : #{$darkNowBackground };
+}
