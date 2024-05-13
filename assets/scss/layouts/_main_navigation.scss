@@ -1,0 +1,24 @@
+nav{
+    width: 80%;
+    position: absolute;
+    bottom:90vh;
+    display: flex;
+    flex-direction: row;
+    .svg{
+        height: 4vh;
+    }
+    .add{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: baseline;
+        cursor: pointer;
+    }
+    .setting{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        cursor: pointer;
+    }
+}

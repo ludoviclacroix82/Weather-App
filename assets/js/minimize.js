@@ -9,9 +9,9 @@ const btnimg = btn.querySelector('img')
 
 btn.addEventListener('click',event =>{
 
-    header.classList.toggle('minimize')
-    todayWrap.classList.toggle('minimize')
-    footer.classList.toggle('minimize')
+    header.classList.toggle('minimize-header')
+    todayWrap.classList.toggle('minimize-today-wrap')
+    footer.classList.toggle('minimize-footer')
     daysList.classList.toggle('minimize')
 
     btnimg.classList.toggle('minimize')

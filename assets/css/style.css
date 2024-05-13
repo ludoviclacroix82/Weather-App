@@ -376,8 +376,29 @@ button {
   button img {
     width: 2vh; }
 
-.minimize {
-  height: 50dvh !important; }
+nav {
+  width: 80%;
+  position: absolute;
+  bottom: 90vh;
+  display: flex;
+  flex-direction: row; }
+  nav .svg {
+    height: 4vh; }
+  nav .add {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    cursor: pointer; }
+  nav .setting {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer; }
+
+.minimize-footer {
+  height: 38dvh !important; }
 
 footer {
   width: 100%;
@@ -449,16 +470,18 @@ footer {
 .svg {
   filter: var(--svgColor); }
 
-.minimize {
-  height: 40dvh !important; }
+.minimize-header {
+  height: 42dvh !important; }
 
 header {
   width: 100%;
   height: 70dvh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: baseline;
   align-items: center;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-top: 20px; }
   header .today {
     width: 90%;
     height: 90%;
@@ -495,15 +518,21 @@ header {
           margin-left: 10px; }
         header .today .country .country-select .selected {
           background-color: var(--primaryColor); }
-    header .today .minimize {
+    header .today .minimize-today-wrap {
       flex-direction: row !important; }
-      header .today .minimize img {
+      header .today .minimize-today-wrap img {
         width: 15vh !important; }
-      header .today .minimize .today-header {
-        width: 40% !important; }
-      header .today .minimize .today-main {
-        width: 40% !important; }
-      header .today .minimize .date {
+      header .today .minimize-today-wrap .today-header {
+        width: 40% !important;
+        height: 30% !important; }
+      header .today .minimize-today-wrap .today-main {
+        width: 50% !important;
+        height: 30% !important; }
+        header .today .minimize-today-wrap .today-main .temp {
+          font-size: 3.5rem !important; }
+        header .today .minimize-today-wrap .today-main .date {
+          margin-bottom: 10px !important; }
+      header .today .minimize-today-wrap .date {
         width: 90% !important; }
     header .today .today-warp {
       display: flex;
@@ -524,7 +553,7 @@ header {
           filter: var(--svgColor); }
       header .today .today-warp .today-main {
         width: 100%;
-        height: 25%;
+        height: 40%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -649,5 +678,27 @@ main {
       main section .day-temp .day-temp-list {
         display: flex;
         flex-direction: row; }
+  main .addCountry {
+    position: absolute;
+    background-color: #fff;
+    z-index: 5;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    overflow: hidden;
+    padding: 10px 20px !important;
+    justify-content: baseline !important; }
+    main .addCountry .country {
+      width: 100%;
+      height: 90vh;
+      background: var(--backgroundLinear);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: baseline;
+      border-radius: 30px; }
+  main .open {
+    display: flex; }
 
 /*# sourceMappingURL=style.css.map */
