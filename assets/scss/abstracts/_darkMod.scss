@@ -8,6 +8,10 @@
 
     --svgColor : #{$ligtherSvg};
     --nowBackground : #{$ligtherNowBackground };
+
+    --svgFooter : #{$ligtherSvgFooter};
+
+    --buttonHover : #($ligtherButtonHover);
 }
 
 .dark {
@@ -20,4 +24,8 @@
 
     --svgColor : #{$darkSvg};
     --nowBackground  : #{$darkNowBackground };
+
+    --svgFooter : #{$darkSvgFooter};
+
+    --buttonHover : #($darkButtonHover);
 }

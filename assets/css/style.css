@@ -1,16 +1,16 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-.poppins-regular, header .today-main, header .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer {
+.poppins-regular, footer .days-list .day-item .day .rain, footer .days-list .day-item .day .temperature, header .today .today-warp .today-main, header .today .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal; }
 
-.poppins-medium, main section .day-temp .now .day-temp-header, main section .day-temp .day-temp-list article .day-temp-header {
+.poppins-medium, button h2, footer .days-list h2, footer .days-list .day-item .day .name, main section .day-temp .now .day-temp-header, main section .day-temp .day-temp-list article .day-temp-header {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal; }
 
-.poppins-semibold, header .today-main .temp, main section h2 {
+.poppins-semibold, header .today .country h2, header .today .today-warp .today-main .temp, main section h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal; }
@@ -22,7 +22,9 @@
   --primaryColorText: #fff;
   --secondaryColorText: #2e7bc3;
   --svgColor: invert(1);
-  --nowBackground: #60b5f4; }
+  --nowBackground: #60b5f4;
+  --svgFooter: hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
+  --buttonHover: #($ligtherButtonHover); }
 
 .dark {
   --primaryColor: #fff;
@@ -31,7 +33,9 @@
   --primaryColorText: #fff;
   --secondaryColorText: #2e7bc3;
   --svgColor: invert(1);
-  --nowBackground: #60b5f4; }
+  --nowBackground: #60b5f4;
+  --svgFooter: hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
+  --buttonHover: #($darkButtonHover); }
 
 *, *::before, *::after {
   margin: 0;
@@ -355,12 +359,98 @@ template {
 [hidden] {
   display: none; }
 
+button {
+  min-width: 100px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  button h2 {
+    color: var(--secondaryColorText);
+    cursor: pointer; }
+    button h2:hover {
+      color: var(--buttonHover); }
+  button .minimize {
+    rotate: 180deg !important;
+    width: 2vh !important; }
+  button img {
+    width: 2vh; }
+
+.minimize {
+  height: 50dvh !important; }
+
 footer {
   width: 100%;
   height: 10dvh; }
+  footer .minimize {
+    display: block !important;
+    height: 74% !important;
+    margin-top: 1%; }
+  footer .days-list {
+    background-color: var(--secondaryColor);
+    padding: 10px;
+    display: none; }
+    footer .days-list h2 {
+      color: var(--primaryColorText);
+      font-size: 1rem;
+      padding: 5px 0px; }
+    footer .days-list .day-item {
+      height: 80%;
+      overflow-y: auto;
+      margin-top: 5px; }
+      footer .days-list .day-item .day {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 10px 0px; }
+        footer .days-list .day-item .day .name {
+          width: 20%;
+          color: var(--primaryColorText);
+          font-size: 1rem; }
+        footer .days-list .day-item .day .rain {
+          width: 60%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          color: var(--primaryColorText);
+          font-size: 0.85rem; }
+          footer .days-list .day-item .day .rain img {
+            height: 3vh;
+            margin-right: 10px;
+            margin-bottom: 5px; }
+          footer .days-list .day-item .day .rain p {
+            font-size: 0.85rem; }
+            footer .days-list .day-item .day .rain p::after {
+              content: "rain";
+              margin-right: 5px; }
+        footer .days-list .day-item .day .temperature {
+          width: 20%;
+          text-align: right;
+          color: var(--primaryColorText);
+          font-size: 0.85rem; }
+  footer .days {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 20px 0px;
+    position: relative;
+    bottom: 0; }
+    footer .days::first-letter {
+      text-transform: capitalize; }
+    footer .days .svg-footer {
+      filter: var(--svgFooter); }
 
 .svg {
   filter: var(--svgColor); }
+
+.minimize {
+  height: 40dvh !important; }
 
 header {
   width: 100%;
@@ -379,88 +469,133 @@ header {
     background: var(--backgroundLinear);
     border: 0;
     border-radius: 30px; }
-  header .today-header {
-    width: 100%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-    header .today-header img {
-      width: 20vh; }
-    header .today-header .svg-today-header {
-      filter: var(--svgColor); }
-  header .today-main {
-    width: 100%;
-    height: 25%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    color: var(--primaryColorText); }
-    header .today-main .date {
-      width: 50%;
-      height: 20px;
+    header .today .country {
+      width: 90%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      font-weight: bold;
-      text-transform: capitalize; }
-    header .today-main .temp {
-      width: 50%;
-      height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4.5rem; }
-      header .today-main .temp::after {
-        content: '°';
-        font-size: 2rem;
+      align-items: center; }
+      header .today .country h2 {
+        color: var(--primaryColorText);
+        text-transform: capitalize;
+        padding: 20px 0px;
+        font-size: 1.2rem; }
+      header .today .country .country-select {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         position: relative;
-        bottom: 20px; }
-    header .today-main .info {
-      width: 50%;
-      height: 20px;
+        bottom: 10px; }
+        header .today .country .country-select .circle {
+          width: 12px;
+          height: 12px;
+          border: 3px solid var(--primaryColor);
+          border-radius: 50%;
+          margin-left: 10px; }
+        header .today .country .country-select .selected {
+          background-color: var(--primaryColor); }
+    header .today .minimize {
+      flex-direction: row !important; }
+      header .today .minimize img {
+        width: 15vh !important; }
+      header .today .minimize .today-header {
+        width: 40% !important; }
+      header .today .minimize .today-main {
+        width: 40% !important; }
+      header .today .minimize .date {
+        width: 90% !important; }
+    header .today .today-warp {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      font-weight: normal; }
-      header .today-main .info::first-letter {
-        text-transform: capitalize; }
-  header .today-footer {
-    width: 90%;
-    height: 20%;
-    margin-top: 5%;
-    border-top: 1px solid var(--primaryColor);
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center; }
-    header .today-footer article {
-      width: calc(50% - 10px);
-      display: flex;
-      flex-direction: row;
       align-items: center;
-      font-size: .75rem;
-      color: var(--primaryColorText); }
-      header .today-footer article .svg {
-        width: 3.5vh; }
-      header .today-footer article .info {
-        width: 70%;
-        padding-left: 10px; }
-        header .today-footer article .info p {
-          text-align: left; }
-          header .today-footer article .info p::first-letter {
+      width: 100%;
+      height: 80vh; }
+      header .today .today-warp .today-header {
+        width: 100%;
+        height: 45%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        header .today .today-warp .today-header img {
+          width: 20vh; }
+        header .today .today-warp .today-header .svg-today-header {
+          filter: var(--svgColor); }
+      header .today .today-warp .today-main {
+        width: 100%;
+        height: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        color: var(--primaryColorText);
+        margin-top: 10px; }
+        header .today .today-warp .today-main .date {
+          width: 50%;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          text-transform: capitalize; }
+        header .today .today-warp .today-main .temp {
+          width: 50%;
+          height: 90px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 4.5rem; }
+          header .today .today-warp .today-main .temp::after {
+            content: '°';
+            font-size: 2rem;
+            position: relative;
+            bottom: 20px; }
+        header .today .today-warp .today-main .info {
+          width: 50%;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: normal; }
+          header .today .today-warp .today-main .info::first-letter {
             text-transform: capitalize; }
-        header .today-footer article .info .pressure::after {
-          content: 'mbar';
-          margin-left: 5px; }
+    header .today .today-footer {
+      width: 90%;
+      height: 20vh;
+      margin-top: 5%;
+      border-top: 1px solid var(--primaryColor);
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      align-items: center; }
+      header .today .today-footer article {
+        width: calc(50% - 10px);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: .75rem;
+        color: var(--primaryColorText); }
+        header .today .today-footer article .svg {
+          width: 3vh; }
+        header .today .today-footer article .info {
+          width: 70%;
+          padding-left: 10px; }
+          header .today .today-footer article .info p {
+            text-align: left; }
+            header .today .today-footer article .info p::first-letter {
+              text-transform: capitalize; }
+          header .today .today-footer article .info .pressure::after {
+            content: 'mbar';
+            margin-left: 5px; }
 
 main {
   width: 100%;
   height: 20dvh;
-  overflow: hidden; }
+  overflow: hidden;
+  background-color: var(--primaryColor); }
   main section {
     height: 100%;
     background-color: var(--secondaryColor);

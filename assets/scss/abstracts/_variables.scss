@@ -7,8 +7,11 @@ $ligtherPrimaryColorText: #fff;
 $ligtherSecondaryColorText : #2e7bc3;
 
 $ligtherSvg : invert(1);
-$ligtherNowBackground  : #60b5f4;
+$ligtherNowBackground : #60b5f4;
 
+$ligtherSvgFooter : hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
+
+$ligtherButtonHover : #60b5f4;
 //dark
 $darkPrimaryColor: #fff;
 $darkSecondaryColor: #2e7bc3;
@@ -18,4 +21,8 @@ $darkPrimaryColorText: #fff;
 $darkSecondaryColorText: #2e7bc3;
 
 $darkSvg : invert(1);
-$darkNowBackground  : #60b5f4;
+$darkNowBackground : #60b5f4;
+
+$darkSvgFooter : hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
+
+$darkButtonHover : #60b5f4;
