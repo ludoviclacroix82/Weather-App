@@ -78,17 +78,19 @@ main {
                 border: 0;
                 border-radius: 15px;
             }
-            
-            .day-temp-list{      
+
+            .day-temp-list {
                 display: flex;
                 flex-direction: row;
-                article{
+
+                article {
                     @extend %article;
                 }
             }
         }
     }
-    .addCountry{
+
+    .addCountry {
         position: absolute;
         background-color: #fff;
         z-index: 5;
@@ -97,10 +99,10 @@ main {
         height: 100%;
         display: none;
         overflow: hidden;
-        padding: 10px 20px !important;
-        justify-content:baseline !important;
+        justify-content: normal !important;
 
-        .country{
+        .country {
+            z-index: 6;
             width: 100%;
             height: 90vh;
             background: var(--backgroundLinear);
@@ -109,9 +111,31 @@ main {
             justify-content: center;
             align-items: baseline;
             border-radius: 30px;
+            padding: 0 10px;
+
+            .country-header {
+                width: 80%;
+                height: 5%;
+
+                img{
+                    width: 5vh;
+                 }
+            }
+
+            .country-main {
+                width: 80%;
+                height: 80%;
+                padding: 10px 0px;
+            }
+
+            .country-footer {
+                width: 80%;
+                height: 10%;
+            }
         }
     }
-    .open{
-        display:flex;
+
+    .open {
+        display: flex;
     }
 }

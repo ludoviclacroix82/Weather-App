@@ -690,9 +690,9 @@ main {
     height: 100%;
     display: none;
     overflow: hidden;
-    padding: 10px 20px !important;
-    justify-content: baseline !important; }
+    justify-content: normal !important; }
     main .addCountry .country {
+      z-index: 6;
       width: 100%;
       height: 90vh;
       background: var(--backgroundLinear);
@@ -700,7 +700,20 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: baseline;
-      border-radius: 30px; }
+      border-radius: 30px;
+      padding: 0 10px; }
+      main .addCountry .country .country-header {
+        width: 80%;
+        height: 5%; }
+        main .addCountry .country .country-header img {
+          width: 5vh; }
+      main .addCountry .country .country-main {
+        width: 80%;
+        height: 80%;
+        padding: 10px 0px; }
+      main .addCountry .country .country-footer {
+        width: 80%;
+        height: 10%; }
   main .open {
     display: flex; }
 
