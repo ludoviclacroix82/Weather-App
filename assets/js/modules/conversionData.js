@@ -8,19 +8,24 @@ const monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep
  * @param {*} date 
  * @returns des variables multiple 
  */
-export function date(date){
+export function date(date) {
 
-    let year,month,day,dayTitle;
+    let month, day, dayTitle, hour, min;
+
+    console.log(date)
 
     const dayArrayTemp = [...dayArray]
     const monthArrayTemp = [...monthArray]
 
-    year = date.getFullYear();
     month = date.getMonth();
     day = date.getDate();
     dayTitle = date.getDay();
 
-     return [dayArrayTemp[dayTitle],monthArrayTemp[month],day]
+
+    hour = (date.getHours() <= 9) ? '0' + date.getHours() : date.getHours()
+    min = (date.getMinutes() <= 9) ? '0' + date.getMinutes() : date.getMinutes()
+
+    return [dayArrayTemp[dayTitle], monthArrayTemp[month], day, hour, min]
 
 }
 /**
@@ -28,17 +33,17 @@ export function date(date){
  * @param {*} temp en Kelvin
  * @returns la conversion temp Celsisus
  */
-export function conversionKelvinCelsius(temp){
+export function conversionKelvinCelsius(temp) {
     let tempKelvin = temp
     let tempCelsius = tempKelvin - 273.15;
 
-   
-    return  Math.floor(tempCelsius)
+
+    return Math.floor(tempCelsius)
 }
 
-export function conversionWind (wind,unit){
+export function conversionWind(wind, unit) {
     let windMeterSec = wind
     var windKmHeure = windMeterSec * (3600 / 1000);
 
-    return windKmHeure.toFixed(0) +' ' + unit
+    return windKmHeure.toFixed(0) + ' ' + unit
 }

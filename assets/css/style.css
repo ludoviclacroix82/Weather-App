@@ -635,9 +635,9 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: baseline;
-    padding: 20px; }
+    padding: 20px;
+    overflow-x: auto; }
     main section h2 {
-      height: 20%;
       font-size: 1rem;
       color: var(--primaryColorText); }
     main section .day-temp {
@@ -690,6 +690,7 @@ main {
     height: 100%;
     display: none;
     overflow: hidden;
+    padding: 10px 20px !important;
     justify-content: normal !important; }
     main .addCountry .country {
       z-index: 6;

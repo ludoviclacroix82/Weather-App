@@ -12,10 +12,10 @@ main {
         justify-content: center;
         align-items: baseline;
         padding: 20px;
+        overflow-x: auto;
 
         h2 {
             @extend .poppins-semibold;
-            height: 20%;
             font-size: 1rem;
             color: var(--primaryColorText);
         }
@@ -99,6 +99,7 @@ main {
         height: 100%;
         display: none;
         overflow: hidden;
+        padding: 10px 20px !important;
         justify-content: normal !important;
 
         .country {

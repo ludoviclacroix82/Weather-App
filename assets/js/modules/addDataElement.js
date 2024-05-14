@@ -2,21 +2,21 @@
  * Ajout via Dom les data dans le today-wrap
  * @param {*} date 
  */
-export function addElementCurrentTemperature(date,currentTemp,sky,wind,rain,humidity,pressure,imgSky){
+export function addElementCurrentTemperature(date, currentTemp, sky, wind, rain, humidity, pressure, imgSky) {
 
     const todayHeader = document.querySelector('.today-header')
     const imgheader = todayHeader.querySelector('img')
 
-    const todayMain =  document.querySelector('.today-main')
+    const todayMain = document.querySelector('.today-main')
     const mainDate = todayMain.querySelector('.date')
     const mainTemp = todayMain.querySelector('.temp')
     const mainInfo = todayMain.querySelector('.info')
 
-    const todayFooter=  document.querySelector('.today-footer')
+    const todayFooter = document.querySelector('.today-footer')
     const todayFooterWind = todayFooter.querySelector('#wind')
     const todayFooterRain = todayFooter.querySelector('#rain')
-    const todayFooterPressure= todayFooter.querySelector('#pressure')
-    const todayFooterHumidity= todayFooter.querySelector('#humidity')
+    const todayFooterPressure = todayFooter.querySelector('#pressure')
+    const todayFooterHumidity = todayFooter.querySelector('#humidity')
 
     imgheader.src = imgSky
 
@@ -28,4 +28,43 @@ export function addElementCurrentTemperature(date,currentTemp,sky,wind,rain,humi
     todayFooterRain.innerHTML = rain
     todayFooterHumidity.innerHTML = humidity
     todayFooterPressure.innerHTML = pressure
+}
+
+export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
+
+    const daytempListNow = document.querySelector('.day-temp')
+    const articletemp = document.createElement('article');
+
+    articletemp.innerHTML = `
+        <div class="day-temp-header">Now</div>
+        <div class="day-temp-main">
+        <img class="svg" src="${imgSky}" alt="">
+        </div>
+        <div class="day-temp-footer">
+        <p class="temperature">${tempMin}/${tempMax}°</p>
+        <p class="rain">${rain}</p>
+        </div>`
+
+    daytempListNow.prepend(articletemp)
+    articletemp.classList.add('now')
+
+}
+
+export function addElementAlltemperature(hour, imgSky, tempMin, tempMax, rain) {
+
+    const daytempList = document.querySelector('.day-temp-list')
+    const articletemp = document.createElement('article');
+
+    articletemp.innerHTML = `
+        <div class="day-temp-header">${hour}</div>
+        <div class="day-temp-main">
+        <img class="svg" src="${imgSky}" alt="">
+        </div>
+        <div class="day-temp-footer">
+        <p class="temperature">${tempMin}/${tempMax}°</p>
+        <p class="rain">${rain}</p>
+        </div>`
+
+    daytempList.appendChild(articletemp)
+
 }
