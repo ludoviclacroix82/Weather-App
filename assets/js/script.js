@@ -1,43 +1,42 @@
 import { date, conversionKelvinCelsius, conversionWind } from './modules/conversionData.js'
 import { addElementCurrentTemperature } from './modules/addDataElement.js'
-import { imageSky} from './modules/imageSky.js'
+import { imageSky } from './modules/imageSky.js'
 
-const apiKey = '890190eadd8324b953338cf9836ab41b'
+const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab'
 
-const lon = 4.44448
-const lat = 50.411362
+const city = "Charleroi"
 const unitWind = 'km/h'
 
 const currentDate = new Date();
 
 
-const apiUrlWeather = (lat, lon, apiKey) => fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey)
+const apiUrlWeather = (city, apiKey) => fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey)
 
-showCurrentTemperature(lat, lon, apiKey)
+showCurrentTemperature(city, apiKey)
 
-async function showCurrentTemperature(lat, lon, apiKey) {
+async function showCurrentTemperature(city, apiKey) {
 
 	try {
-		let responseApiUrlWeather = await apiUrlWeather(lat, lon, apiKey);
+		let responseApiUrlWeather = await apiUrlWeather(city, apiKey);
 		let data = await responseApiUrlWeather.json();
 
 		//image Sky 
-		const imgSky = imageSky(data.weather[0].main)
+		const imgSky = imageSky(data.list[0].weather[0].main)
 		// curent day
 		const [dayTitle, month, day] = date(currentDate)
 		const dateCurrentFormat = dayTitle + ' |  ' + month + ' ' + day
 		//Current temp Celisus
-		const temperatureCurrent = conversionKelvinCelsius(data.main.temp)
+		const temperatureCurrent = conversionKelvinCelsius(data.list[0].main.temp)
 		//Description Sky
-		const descriptionSky = data.weather[0].description
+		const descriptionSky = data.list[0].weather[0].description
 		// Wind
-		const wind = conversionWind(data.wind.speed, unitWind)
+		const wind = conversionWind(data.list[0].wind.speed, unitWind)
 		//rain
-		const rain = data.clouds.all + ' %'
+		const rain = data.list[0].clouds.all + ' %'
 		// Humidity
-		const humidity = data.main.humidity + ' %'
+		const humidity = data.list[0].main.humidity + ' %'
 		//pressure
-		const pressure = data.main.pressure
+		const pressure = data.list[0].main.pressure
 
 		addElementCurrentTemperature(
 			dateCurrentFormat,
