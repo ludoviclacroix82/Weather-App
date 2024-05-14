@@ -4,6 +4,7 @@ button {
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
 
     h2 {
         @extend .poppins-medium;
@@ -14,12 +15,29 @@ button {
             color: var(--buttonHover)
         }
     }
-    .minimize{
+
+    .minimize {
         rotate: 180deg !important;
         width: 2vh !important;
     }
+
     img {
         width: 2vh;
     }
 
+}
+
+#btnSearch {
+    width: 20px;
+    position: relative;
+    right: 30px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--buttonHover)
+    }
+
+    img {
+        width: 2vh;
+    }
 }

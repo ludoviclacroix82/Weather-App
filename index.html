@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <script defer src="./assets/js/minimize.js"></script>
-    <script defer src="./assets/js/menu.js"></script>
-    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" defer src="./assets/js/menu.js"></script>
+    <script type="module" defer src="./assets/js/script.js"></script>
 </head>
 
 <body class="ligther">
     <header class="">
         <nav>
             <div class="add" id="btnAaddCountry">
-                <img class="svg" src="./assets/images/icones/octicon--plus-24.svg" alt="add" >
+                <img class="svg" src="./assets/images/icones/octicon--plus-24.svg" alt="add">
             </div>
             <div class="setting">
                 <img class="svg" src="./assets/images/icones/carbon--overflow-menu-vertical.svg" alt="setting">
@@ -33,8 +33,7 @@
             </div>
             <div class="today-warp">
                 <div class="today-header">
-                    <img class="svg-today-header" src=""
-                        alt="">
+                    <img class="svg-today-header" src="" alt="">
                 </div>
                 <div class="today-main">
                     <div class="date"></div>
@@ -78,18 +77,25 @@
         <section>
             <h2>Sunday | Nov 14</h2>
             <div class="day-temp">
-              <!-- add data js-->
-                <div class="day-temp-list">
                 <!-- add data js-->
+                <div class="day-temp-list">
+                    <!-- add data js-->
                 </div>
             </div>
         </section>
         <section class="addCountry">
             <div class="country">
                 <div class="country-header">
-                    <img class="svg" src="./assets/images/icones/bi--arrow-left-short.svg" alt="Close" id="close" >
+                    <img class="svg" src="./assets/images/icones/bi--arrow-left-short.svg" alt="Close" id="close">
                 </div>
-                <div class="country-main"></div>
+                <div class="country-main">
+                    <div class="search">
+                        <input type="text" name="citySearch" id="citySearch" placeholder="Search Your City">
+                        <button id="btnSearch">
+                            <img src="./assets/images/icones/material-symbols--search.svg" alt="submit">
+                        </button>
+                    </div>
+                </div>
                 <div class="country-footer"></div>
             </div>
         </section>
@@ -171,6 +177,7 @@
             </button>
         </div>
     </footer>
-    
-</body> 
+
+</body>
+
 </html>

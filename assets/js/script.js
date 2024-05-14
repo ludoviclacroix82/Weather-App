@@ -1,6 +1,7 @@
 import { date, conversionKelvinCelsius, conversionWind } from './modules/conversionData.js'
 import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature } from './modules/addDataElement.js'
 import { imageSky } from './modules/imageSky.js'
+import { setItem, getItem } from './modules/localstorage.js'
 
 const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab'
 
@@ -44,22 +45,18 @@ async function showTemperature(city, apiKey) {
 
 			if (cpt === 0) {
 				// curent day
-				const [dayTitle, month, day, hour,min] = date(dateCurrent)
+				const [dayTitle, month, day, hour, min] = date(dateCurrent)
 				const dateFormat = dayTitle + ' |  ' + month + ' ' + day
 				addElementCurrentTemperature(dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky)
 				addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
 			} else {
 				let dateTime = new Date(list.dt_txt)
-				const [dayTitle, month, day, hour,min] = date(dateTime)
+				const [dayTitle, month, day, hour, min] = date(dateTime)
 				const hourFormat = hour + ":" + min
 				addElementAlltemperature(hourFormat, imgSky, temperatureMin, temperatureMax, rain)
 			}
-
-
 			cpt++;
-
 		}
-
 
 	} catch (error) {
 		console.log("There was an error!", error);

@@ -12,8 +12,6 @@ export function date(date) {
 
     let month, day, dayTitle, hour, min;
 
-    console.log(date)
-
     const dayArrayTemp = [...dayArray]
     const monthArrayTemp = [...monthArray]
 

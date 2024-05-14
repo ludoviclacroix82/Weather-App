@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-.poppins-regular, footer .days-list .day-item .day .rain, footer .days-list .day-item .day .temperature, header .today .today-warp .today-main, header .today .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer {
+.poppins-regular, input[type=text], footer .days-list .day-item .day .rain, footer .days-list .day-item .day .temperature, header .today .today-warp .today-main, header .today .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal; }
@@ -364,7 +364,8 @@ button {
   padding: 5px;
   display: flex;
   flex-direction: row;
-  align-items: center; }
+  align-items: center;
+  cursor: pointer; }
   button h2 {
     color: var(--secondaryColorText);
     cursor: pointer; }
@@ -375,6 +376,25 @@ button {
     width: 2vh !important; }
   button img {
     width: 2vh; }
+
+#btnSearch {
+  width: 20px;
+  position: relative;
+  right: 30px;
+  cursor: pointer; }
+  #btnSearch:hover {
+    color: var(--buttonHover); }
+  #btnSearch img {
+    width: 2vh; }
+
+input[type=text] {
+  width: 100%;
+  height: 25px;
+  background-color: var(--primaryColor);
+  border: 0;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 0.85rem; }
 
 nav {
   width: 80%;
@@ -711,7 +731,12 @@ main {
       main .addCountry .country .country-main {
         width: 80%;
         height: 80%;
-        padding: 10px 0px; }
+        padding: 10px 0px;
+        margin: 0 auto; }
+        main .addCountry .country .country-main .search {
+          display: flex;
+          flex-direction: row;
+          justify-content: center; }
       main .addCountry .country .country-footer {
         width: 80%;
         height: 10%; }
