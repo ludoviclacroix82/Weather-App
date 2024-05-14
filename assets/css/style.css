@@ -551,7 +551,7 @@ header {
         justify-content: center;
         align-items: center; }
         header .today .today-warp .today-header img {
-          width: 20vh; }
+          width: 15vh; }
         header .today .today-warp .today-header .svg-today-header {
           filter: var(--svgColor); }
       header .today .today-warp .today-main {
