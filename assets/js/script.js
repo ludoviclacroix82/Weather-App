@@ -2,7 +2,7 @@ import { date, conversionKelvinCelsius, conversionWind } from './modules/convers
 import { addElementCurrentTemperature } from './modules/addDataElement.js'
 import { imageSky} from './modules/imageSky.js'
 
-const apiKey = '56cb53b395d755b7e4601f7d532a3ec0'
+const apiKey = '890190eadd8324b953338cf9836ab41b'
 
 const lon = 4.44448
 const lat = 50.411362
@@ -11,7 +11,6 @@ const unitWind = 'km/h'
 const currentDate = new Date();
 
 
-//const apiUrlWeather = (city, apikey) => fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey)
 const apiUrlWeather = (lat, lon, apiKey) => fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + apiKey)
 
 showCurrentTemperature(lat, lon, apiKey)
