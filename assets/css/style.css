@@ -501,27 +501,28 @@ header {
       header .today .country h2 {
         color: var(--primaryColorText);
         text-transform: capitalize;
-        padding: 20px 0px;
-        font-size: 1.2rem; }
+        padding: 10px 0px;
+        font-size: 1.1rem; }
       header .today .country .country-select {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         position: relative;
-        bottom: 10px; }
+        bottom: 5px; }
         header .today .country .country-select .circle {
-          width: 12px;
-          height: 12px;
+          width: 8px;
+          height: 8px;
           border: 3px solid var(--primaryColor);
           border-radius: 50%;
           margin-left: 10px; }
         header .today .country .country-select .selected {
           background-color: var(--primaryColor); }
     header .today .minimize-today-wrap {
-      flex-direction: row !important; }
+      flex-direction: row !important;
+      height: 60%; }
       header .today .minimize-today-wrap img {
-        width: 15vh !important; }
+        width: 13vh !important; }
       header .today .minimize-today-wrap .today-header {
         width: 40% !important;
         height: 30% !important; }
@@ -529,9 +530,11 @@ header {
         width: 50% !important;
         height: 30% !important; }
         header .today .minimize-today-wrap .today-main .temp {
-          font-size: 3.5rem !important; }
+          font-size: 3rem !important; }
         header .today .minimize-today-wrap .today-main .date {
           margin-bottom: 10px !important; }
+      header .today .minimize-today-wrap .today-footer {
+        height: 60%; }
       header .today .minimize-today-wrap .date {
         width: 90% !important; }
     header .today .today-warp {

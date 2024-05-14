@@ -36,8 +36,8 @@ header {
                 @extend .poppins-semibold;
                 color: var(--primaryColorText);
                 text-transform: capitalize;
-                padding: 20px 0px;
-                font-size: 1.2rem;
+                padding: 10px 0px;
+                font-size: 1.1rem;
 
             }
 
@@ -47,11 +47,11 @@ header {
                 justify-content: center;
                 align-items: center;
                 position: relative;
-                bottom: 10px;
+                bottom: 5px;
 
                 .circle {
-                    width: 12px;
-                    height: 12px;
+                    width: 8px;
+                    height: 8px;
                     border: 3px solid var(--primaryColor);
                     border-radius: 50%;
                     margin-left: 10px;
@@ -65,8 +65,9 @@ header {
 
         .minimize-today-wrap{
             flex-direction: row !important;
+            height: 60%;
             img {
-                width: 15vh !important;
+                width: 13vh !important;
             }
             .today-header {
                 width: 40% !important;
@@ -76,11 +77,14 @@ header {
                 width: 50% !important;
                 height: 30% !important;
                 .temp{
-                    font-size: 3.5rem !important;
+                    font-size: 3rem !important;
                 }
                 .date{
                     margin-bottom: 10px !important;
                 }
+            }
+            .today-footer{
+                height: 60%;
             }
             .date{
                 width: 90% !important;
