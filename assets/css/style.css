@@ -620,7 +620,7 @@ header {
             header .today .today-footer article .info p::first-letter {
               text-transform: capitalize; }
           header .today .today-footer article .info .pressure::after {
-            content: 'mbar';
+            content: 'HPa';
             margin-left: 5px; }
 
 main {

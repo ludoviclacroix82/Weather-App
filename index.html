@@ -9,6 +9,7 @@
 
     <script defer src="./assets/js/minimize.js"></script>
     <script defer src="./assets/js/menu.js"></script>
+    <script type="module" src="./assets/js/script.js"></script>
 </head>
 
 <body class="ligther">
@@ -36,37 +37,37 @@
                         alt="">
                 </div>
                 <div class="today-main">
-                    <div class="date">Sunday | Nov 14</div>
-                    <div class="temp">24</div>
-                    <div class="info">Heavy rain</div>
+                    <div class="date"></div>
+                    <div class="temp"></div>
+                    <div class="info"></div>
                 </div>
             </div>
             <div class="today-footer">
                 <article>
                     <img class="svg" src="./assets/images/icones/carbon--location-current.svg" alt="Win">
                     <div class="info">
-                        <p>3.7 km/h</p>
+                        <p id="wind"></p>
                         <p>wind</p>
                     </div>
                 </article>
                 <article>
                     <img class="svg" src="./assets/images/icones/mdi--weather-rainy.svg" alt="Rain">
                     <div class="info">
-                        <p>74%</p>
+                        <p id="rain"></p>
                         <p>Chance of rain</p>
                     </div>
                 </article>
                 <article>
                     <img class="svg" src="./assets/images/icones/fluent--temperature-24-regular.svg" alt="Pressure">
                     <div class="info">
-                        <p class="pressure">1010</p>
+                        <p class="pressure" id="pressure"></p>
                         <p>Pressure</p>
                     </div>
                 </article>
                 <article>
                     <img class="svg" src="./assets/images/icones/ion--water-outline.svg" alt="Humidity">
                     <div class="info">
-                        <p>83%</p>
+                        <p id="humidity"></p>
                         <p>Humidity</p>
                     </div>
                 </article>
