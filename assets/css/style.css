@@ -509,6 +509,25 @@ header {
   justify-content: baseline;
   align-items: baseline;
   overflow: hidden; }
+  header .minimize-today-wrap .today-warp {
+    flex-direction: row !important;
+    height: 60%; }
+    header .minimize-today-wrap .today-warp img {
+      width: 13vh !important; }
+    header .minimize-today-wrap .today-warp .today-header {
+      width: 40% !important;
+      height: 30% !important; }
+    header .minimize-today-wrap .today-warp .today-main {
+      width: 50% !important;
+      height: 30% !important; }
+      header .minimize-today-wrap .today-warp .today-main .temp {
+        font-size: 3rem !important; }
+      header .minimize-today-wrap .today-warp .today-main .date {
+        margin-bottom: 10px !important; }
+  header .minimize-today-wrap .today-footer {
+    height: 60%; }
+  header .minimize-today-wrap .date {
+    width: 90% !important; }
   header section {
     height: 100dvh;
     display: flex;
@@ -553,25 +572,6 @@ header {
             margin-left: 10px; }
           header section .today .country .country-select .selected {
             background-color: var(--primaryColor); }
-      header section .today .minimize-today-wrap {
-        flex-direction: row !important;
-        height: 60%; }
-        header section .today .minimize-today-wrap img {
-          width: 13vh !important; }
-        header section .today .minimize-today-wrap .today-header {
-          width: 40% !important;
-          height: 30% !important; }
-        header section .today .minimize-today-wrap .today-main {
-          width: 50% !important;
-          height: 30% !important; }
-          header section .today .minimize-today-wrap .today-main .temp {
-            font-size: 3rem !important; }
-          header section .today .minimize-today-wrap .today-main .date {
-            margin-bottom: 10px !important; }
-        header section .today .minimize-today-wrap .today-footer {
-          height: 60%; }
-        header section .today .minimize-today-wrap .date {
-          width: 90% !important; }
       header section .today .today-warp {
         display: flex;
         flex-direction: column;
