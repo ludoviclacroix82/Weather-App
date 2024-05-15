@@ -26,7 +26,7 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
                     <div class="country-select" id="${city}">
                     </div>
                 </div>
-                <div class="today-warp">
+                <div class="today-warp" id="wrap${city}">
                     <div class="today-header">
                         <img class="svg-today-header" src="${imgSky}" alt="">
                     </div>
@@ -109,7 +109,6 @@ export function addElementAlltemperature(city,hour, date, imgSky, tempMin, tempM
     const allTempTitle = allTempElem.querySelector('h2')
 
     allTempTitle.innerHTML = date
-
     articletemp.innerHTML = `
         <div class="day-temp-header">${hour}</div>
         <div class="day-temp-main">

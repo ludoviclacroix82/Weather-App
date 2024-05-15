@@ -2,11 +2,14 @@ import {addElementCurrentTemperature, addElementNowtemperature, addElementAlltem
 import { imageSky } from './imageSky.js'
 import { date, conversionKelvinCelsius, conversionWind } from './conversionData.js'
 
+const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab'
+const apiUrlWeather = (city, apiKey) => fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey)
+
 const unitWind = 'km/h'
 const nbrAllTemp = 10
 let cpt = 0;
 
-export async function showTemperature(city,apiUrlWeather, apiKey,dateCurrent) {
+export async function showTemperature(city,dateCurrent) {
 
 	try {
 		let responseApiUrlWeather = await apiUrlWeather(city, apiKey);
@@ -41,8 +44,8 @@ export async function showTemperature(city,apiUrlWeather, apiKey,dateCurrent) {
 	}
 }
 
-export async function showAllTemperature(city,apiUrlWeather, apiKey,dateCurrent) {
-
+export async function showAllTemperature(city,dateCurrent) {
+    console.log(city)
 	try {
 		let responseApiUrlWeather = await apiUrlWeather(city, apiKey);
 		let data = await responseApiUrlWeather.json();

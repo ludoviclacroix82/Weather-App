@@ -1,4 +1,5 @@
 import { getItem } from './localstorage.js'
+import {showAllTemperature} from './apiFunction.js'
 
 /**
  * Swipe : gère le défilement horizontal 
@@ -8,20 +9,29 @@ import { getItem } from './localstorage.js'
  */
 export function swipe(data) {
     const todayHeader = document.querySelector('.today-header')
-    const allCityElem = todayHeader.querySelector('#allCity')
     const todayHeaderOffesWidth = todayHeader.offsetWidth
     const nbrCity = Array.from(getItem('City')).length
     let nbrCitySlected = 1
 
+    const dateCurrent = new Date();
+
     todayHeader.addEventListener('touchstart', event => {
+        console.log(nbrCitySlected + '//' + nbrCity);
+        const arrayCity = Array.from(getItem('City'))
+        const dayTempList = document.querySelector('.day-temp-list')
+       
+        
 
         if (nbrCitySlected < nbrCity) {
             todayHeader.scrollLeft += todayHeaderOffesWidth - 20
             nbrCitySlected += 1
+            showAllTemperature(arrayCity[nbrCitySlected-1],dateCurrent)
         } else if (nbrCitySlected == nbrCity) {
             todayHeader.scrollLeft = 0
             nbrCitySlected = 1
-        }
+            showAllTemperature(arrayCity[0],dateCurrent)
 
+        }
+        
     })
 }
