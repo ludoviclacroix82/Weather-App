@@ -656,7 +656,8 @@ main {
     justify-content: center;
     align-items: baseline;
     padding: 20px;
-    overflow-x: auto; }
+    overflow-x: auto;
+    overflow-y: hidden; }
     main section h2 {
       font-size: 1rem;
       color: var(--primaryColorText); }

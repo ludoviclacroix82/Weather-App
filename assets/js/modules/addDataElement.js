@@ -50,10 +50,14 @@ export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
 
 }
 
-export function addElementAlltemperature(hour, imgSky, tempMin, tempMax, rain) {
+export function addElementAlltemperature(hour,date, imgSky, tempMin, tempMax, rain) {
 
     const daytempList = document.querySelector('.day-temp-list')
     const articletemp = document.createElement('article');
+    const allTempElem = document.querySelector('#allTemp')
+    const allTempTitle = allTempElem.querySelector('h2')
+
+    allTempTitle.innerHTML = date
 
     articletemp.innerHTML = `
         <div class="day-temp-header">${hour}</div>
