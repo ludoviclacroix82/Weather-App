@@ -8,11 +8,14 @@ import { setItem, getItem } from './localstorage.js'
  */
 export function addElementCurrentTemperature(city,date, currentTemp, sky, wind, rain, humidity, pressure, imgSky) {
 
-    const todayHeader = document.querySelector('section')
+    const section = document.querySelector('section')
     const today = document.createElement('div')
+    const todayHeader = document.querySelector('.today-header')
 
-    todayHeader.appendChild(today)
+    section.appendChild(today)
     today.classList.add('today')
+    
+    today.style.width =  todayHeader.offsetWidth-40+'px'
 
     today.innerHTML = `
                 <div class="country">

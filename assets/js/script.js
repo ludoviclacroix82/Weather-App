@@ -55,14 +55,13 @@ async function showTemperature(city, apiKey) {
 
 		addElementCurrentTemperature(city, dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky)
 
-
-		/*for (const list of arrayList) {
+		
+		for (const list of data.list) {
 
 			if (cpt == nbrAllTemp) {
 				break
 			}else{
 				if (cpt === 0) {
-					addElementCurrentTemperature(city,dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky)
 					addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
 				} else {
 					let dateTime = new Date(data.list[0].dt_txt)
@@ -72,7 +71,7 @@ async function showTemperature(city, apiKey) {
 				}
 			}
 			cpt++;
-		}*/
+		}
 
 	} catch (error) {
 		console.log("There was an error!", error);
