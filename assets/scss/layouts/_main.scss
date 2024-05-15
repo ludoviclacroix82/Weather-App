@@ -172,15 +172,17 @@ main {
                             }
                             
                         }
-                        .temp{
+                        .delete{
                             width: 50%;
                             height: 100%;
                             display: flex;
                             flex-direction: column;
-                            align-items: center;
+                            align-items:end;
                             justify-content: center;
+                            
                             img{
                                 width: 2dvh;
+                                margin-right: 15px;
                             }
                         }
                     }
