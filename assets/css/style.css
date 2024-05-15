@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-.poppins-regular, input[type=text], footer .days-list .day-item .day .rain, footer .days-list .day-item .day .temperature, header .today .today-warp .today-main, header .today .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer, main .addCountry .country .country-main .listCity .city .name h2 {
+.poppins-regular, input[type=text], footer .days-list .day-item .day .rain, footer .days-list .day-item .day .temperature, header section .today .today-warp .today-main, header section .today .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer, main .addCountry .country .country-main .listCity .city .name h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal; }
@@ -10,7 +10,7 @@
   font-weight: 500;
   font-style: normal; }
 
-.poppins-semibold, header .today .country h2, header .today .today-warp .today-main .temp, main section h2 {
+.poppins-semibold, header section .today .country h2, header section .today .today-warp .today-main .temp, main section h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal; }
@@ -399,25 +399,31 @@ input[type=text] {
   font-size: 0.85rem; }
 
 nav {
-  width: 80%;
+  width: 100%;
   position: absolute;
   bottom: 90vh;
   display: flex;
-  flex-direction: row; }
-  nav .svg {
-    height: 4vh; }
-  nav .add {
-    width: 50%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  nav .navigation {
+    width: 80%;
     display: flex;
-    align-items: center;
-    justify-content: baseline;
-    cursor: pointer; }
-  nav .setting {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    cursor: pointer; }
+    flex-direction: row; }
+    nav .navigation .svg {
+      height: 4vh; }
+    nav .navigation .add {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: baseline;
+      cursor: pointer; }
+    nav .navigation .setting {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      cursor: pointer; }
 
 .minimize-footer {
   height: 38dvh !important; }
@@ -501,149 +507,156 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: baseline;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 20px; }
-  header .today {
-    width: 90%;
-    height: 90%;
+  align-items: baseline;
+  overflow: hidden; }
+  header section {
+    height: 95%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: baseline;
     align-items: center;
-    background: var(--backgroundLinear);
-    border: 0;
-    border-radius: 30px; }
-    header .today .country {
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; }
-      header .today .country h2 {
-        color: var(--primaryColorText);
-        text-transform: capitalize;
-        padding: 10px 0px;
-        font-size: 1.1rem; }
-      header .today .country .country-select {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        bottom: 5px; }
-        header .today .country .country-select .circle {
-          width: 8px;
-          height: 8px;
-          border: 1px solid var(--primaryColor);
-          border-radius: 50%;
-          margin-left: 10px; }
-        header .today .country .country-select .selected {
-          background-color: var(--primaryColor); }
-    header .today .minimize-today-wrap {
-      flex-direction: row !important;
-      height: 60%; }
-      header .today .minimize-today-wrap img {
-        width: 13vh !important; }
-      header .today .minimize-today-wrap .today-header {
-        width: 40% !important;
-        height: 30% !important; }
-      header .today .minimize-today-wrap .today-main {
-        width: 50% !important;
-        height: 30% !important; }
-        header .today .minimize-today-wrap .today-main .temp {
-          font-size: 3rem !important; }
-        header .today .minimize-today-wrap .today-main .date {
-          margin-bottom: 10px !important; }
-      header .today .minimize-today-wrap .today-footer {
-        height: 60%; }
-      header .today .minimize-today-wrap .date {
-        width: 90% !important; }
-    header .today .today-warp {
+    padding: 20px 20px; }
+    header section .today {
+      width: 400px;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      height: 70%; }
-      header .today .today-warp .today-header {
-        width: 100%;
-        height: 45%;
+      background: var(--backgroundLinear);
+      border: 0;
+      border-radius: 30px;
+      margin-right: 20px; }
+      header section .today .country {
+        width: 90%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center; }
-        header .today .today-warp .today-header img {
-          width: 15vh; }
-        header .today .today-warp .today-header .svg-today-header {
-          filter: var(--svgColor); }
-      header .today .today-warp .today-main {
-        width: 100%;
-        height: 40%;
+        header section .today .country h2 {
+          color: var(--primaryColorText);
+          text-transform: capitalize;
+          padding: 10px 0px;
+          font-size: 1.1rem; }
+        header section .today .country .country-select {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          bottom: 5px; }
+          header section .today .country .country-select .circle {
+            width: 8px;
+            height: 8px;
+            border: 1px solid var(--primaryColor);
+            border-radius: 50%;
+            margin-left: 10px; }
+          header section .today .country .country-select .selected {
+            background-color: var(--primaryColor); }
+      header section .today .minimize-today-wrap {
+        flex-direction: row !important;
+        height: 60%; }
+        header section .today .minimize-today-wrap img {
+          width: 13vh !important; }
+        header section .today .minimize-today-wrap .today-header {
+          width: 40% !important;
+          height: 30% !important; }
+        header section .today .minimize-today-wrap .today-main {
+          width: 50% !important;
+          height: 30% !important; }
+          header section .today .minimize-today-wrap .today-main .temp {
+            font-size: 3rem !important; }
+          header section .today .minimize-today-wrap .today-main .date {
+            margin-bottom: 10px !important; }
+        header section .today .minimize-today-wrap .today-footer {
+          height: 60%; }
+        header section .today .minimize-today-wrap .date {
+          width: 90% !important; }
+      header section .today .today-warp {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 1rem;
-        color: var(--primaryColorText);
-        margin-top: 10px; }
-        header .today .today-warp .today-main .date {
-          width: 50%;
-          height: 20px;
+        width: 100%;
+        height: 70%; }
+        header section .today .today-warp .today-header {
+          width: 100%;
+          height: 45%;
           display: flex;
-          align-items: center;
           justify-content: center;
-          font-weight: bold;
-          text-transform: capitalize; }
-        header .today .today-warp .today-main .temp {
-          width: 50%;
-          height: 90px;
+          align-items: center; }
+          header section .today .today-warp .today-header img {
+            width: 15vh; }
+          header section .today .today-warp .today-header .svg-today-header {
+            filter: var(--svgColor); }
+        header section .today .today-warp .today-main {
+          width: 100%;
+          height: 40%;
           display: flex;
-          align-items: center;
+          flex-direction: column;
           justify-content: center;
-          font-size: 4.5rem; }
-          header .today .today-warp .today-main .temp::after {
-            content: '°';
-            font-size: 2rem;
-            position: relative;
-            bottom: 20px; }
-        header .today .today-warp .today-main .info {
-          width: 50%;
-          height: 20px;
-          display: flex;
           align-items: center;
-          justify-content: center;
-          font-weight: normal; }
-          header .today .today-warp .today-main .info::first-letter {
+          font-size: 1rem;
+          color: var(--primaryColorText);
+          margin-top: 10px; }
+          header section .today .today-warp .today-main .date {
+            width: 50%;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             text-transform: capitalize; }
-    header .today .today-footer {
-      width: 90%;
-      height: 30%;
-      margin-top: 5%;
-      border-top: 1px solid var(--primaryColor);
-      padding: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-      align-items: center; }
-      header .today .today-footer article {
-        width: calc(50% - 10px);
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        font-size: .75rem;
-        color: var(--primaryColorText); }
-        header .today .today-footer article .svg {
-          width: 3vh; }
-        header .today .today-footer article .info {
-          width: 70%;
-          padding-left: 10px; }
-          header .today .today-footer article .info p {
-            text-align: left; }
-            header .today .today-footer article .info p::first-letter {
+          header section .today .today-warp .today-main .temp {
+            width: 50%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem; }
+            header section .today .today-warp .today-main .temp::after {
+              content: '°';
+              font-size: 2rem;
+              position: relative;
+              bottom: 20px; }
+          header section .today .today-warp .today-main .info {
+            width: 50%;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: normal; }
+            header section .today .today-warp .today-main .info::first-letter {
               text-transform: capitalize; }
-          header .today .today-footer article .info .pressure::after {
-            content: 'HPa';
-            margin-left: 5px; }
+      header section .today .today-footer {
+        width: 90%;
+        height: 30%;
+        margin-top: 5%;
+        border-top: 1px solid var(--primaryColor);
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center; }
+        header section .today .today-footer article {
+          width: calc(50% - 10px);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          font-size: .75rem;
+          color: var(--primaryColorText); }
+          header section .today .today-footer article .svg {
+            width: 3vh; }
+          header section .today .today-footer article .info {
+            width: 70%;
+            padding-left: 10px; }
+            header section .today .today-footer article .info p {
+              text-align: left; }
+              header section .today .today-footer article .info p::first-letter {
+                text-transform: capitalize; }
+            header section .today .today-footer article .info .pressure::after {
+              content: 'HPa';
+              margin-left: 5px; }
 
 main {
   width: 100%;

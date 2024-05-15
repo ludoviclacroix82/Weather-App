@@ -1,7 +1,8 @@
 import { date, conversionKelvinCelsius, conversionWind } from './modules/conversionData.js'
-import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature , showListCity } from './modules/addDataElement.js'
+import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature, showListCity } from './modules/addDataElement.js'
 import { imageSky } from './modules/imageSky.js'
 import { setItem, getItem } from './modules/localstorage.js'
+import { swipe } from './modules/swipe.js'
 
 const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab'
 
@@ -15,8 +16,14 @@ let cpt = 0;
 
 const apiUrlWeather = (city, apiKey) => fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey)
 
-showTemperature(city, apiKey)
+const arrayCity = Array.from(getItem('City'))
+
+for (const city of arrayCity) {
+	showTemperature(city, apiKey)
+}
+
 showListCity()
+swipe();
 
 async function showTemperature(city, apiKey) {
 
@@ -24,48 +31,48 @@ async function showTemperature(city, apiKey) {
 		let responseApiUrlWeather = await apiUrlWeather(city, apiKey);
 		let data = await responseApiUrlWeather.json();
 
-		const arrayList = data.list
+		//image Sky 
+		const imgSky = imageSky(data.list[0].weather[0].main)
 
-		for (const list of arrayList) {
-			//image Sky 
-			const imgSky = imageSky(list.weather[0].main)
+		// temp Celisus
+		const temperature = conversionKelvinCelsius(data.list[0].main.temp)
+		const temperatureMin = conversionKelvinCelsius(data.list[0].main.temp_min)
+		const temperatureMax = conversionKelvinCelsius(data.list[0].main.temp_max)
+		//Description Sky
+		const descriptionSky = data.list[0].weather[0].description
+		// Wind
+		const wind = conversionWind(data.list[0].wind.speed, unitWind)
+		//rain
+		const rain = data.list[0].clouds.all + ' %'
+		// Humidity
+		const humidity = data.list[0].main.humidity + ' %'
+		//pressure
+		const pressure = data.list[0].main.pressure
 
-			// temp Celisus
-			const temperature = conversionKelvinCelsius(list.main.temp)
-			const temperatureMin = conversionKelvinCelsius(list.main.temp_min)
-			const temperatureMax = conversionKelvinCelsius(list.main.temp_max)
-			//Description Sky
-			const descriptionSky = list.weather[0].description
-			// Wind
-			const wind = conversionWind(list.wind.speed, unitWind)
-			//rain
-			const rain = list.clouds.all + ' %'
-			// Humidity
-			const humidity = list.main.humidity + ' %'
-			//pressure
-			const pressure = list.main.pressure
+		// curent day
+		const [dayTitle, month, day, hour, min] = date(dateCurrent)
+		const dateFormat = dayTitle + ' |  ' + month + ' ' + day
 
-			// curent day
-			const [dayTitle, month, day, hour, min] = date(dateCurrent)
-			const dateFormat = dayTitle + ' |  ' + month + ' ' + day
+		addElementCurrentTemperature(city, dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky)
+
+
+		/*for (const list of arrayList) {
 
 			if (cpt == nbrAllTemp) {
 				break
 			}else{
 				if (cpt === 0) {
-					addElementCurrentTemperature(dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky)
+					addElementCurrentTemperature(city,dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky)
 					addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
 				} else {
-					let dateTime = new Date(list.dt_txt)
+					let dateTime = new Date(data.list[0].dt_txt)
 					const [dayTitle, month, day, hour, min] = date(dateTime)
 					const hourFormat = hour + ":" + min
 					addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
 				}
 			}
-
-
 			cpt++;
-		}
+		}*/
 
 	} catch (error) {
 		console.log("There was an error!", error);
