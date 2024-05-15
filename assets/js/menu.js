@@ -9,10 +9,10 @@ const btnSearch = document.querySelector('#btnSearch')
 
 
 btnAddCountry.addEventListener('click',event=>{
-    addCountry.classList.toggle('open')
+    showAddCity()
 })
 btnClose.addEventListener('click',event=>{
-    addCountry.classList.toggle('open')
+    closeAddCity()
 })
 
 btnSearch.addEventListener('click',event =>{
@@ -22,5 +22,14 @@ btnSearch.addEventListener('click',event =>{
     setItem('City',cityArray)
     city.value = '';
 
-    showListCity
+    showListCity()
 })
+
+export function showAddCity(){
+    addCountry.classList.add('open')
+    showListCity()
+}
+export function closeAddCity(){
+    addCountry.classList.remove('open')
+    location.reload()
+}

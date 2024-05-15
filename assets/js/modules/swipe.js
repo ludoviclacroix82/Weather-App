@@ -14,7 +14,6 @@ export function swipe(data) {
     let nbrCitySlected = 1
 
     todayHeader.addEventListener('touchstart', event => {
-        console.log(nbrCitySlected + '//' + nbrCity);
 
         if (nbrCitySlected < nbrCity) {
             todayHeader.scrollLeft += todayHeaderOffesWidth - 20

@@ -1,5 +1,7 @@
 
 import { setItem, getItem } from './localstorage.js'
+import {showTemperature ,showAllTemperature} from './apiFunction.js'
+import { swipe } from './swipe.js'
 
 
 /**
@@ -79,7 +81,7 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
 
 }
 
-export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
+export function addElementNowtemperature(city,imgSky, tempMin, tempMax, rain) {
 
     const daytempListNow = document.querySelector('.day-temp')
     const articletemp = document.createElement('article');
@@ -99,7 +101,7 @@ export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
 
 }
 
-export function addElementAlltemperature(hour, date, imgSky, tempMin, tempMax, rain) {
+export function addElementAlltemperature(city,hour, date, imgSky, tempMin, tempMax, rain) {
 
     const daytempList = document.querySelector('.day-temp-list')
     const articletemp = document.createElement('article');
