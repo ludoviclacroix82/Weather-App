@@ -6,7 +6,7 @@ import { setItem, getItem } from './localstorage.js'
  * Ajout via Dom les data dans le today-wrap
  * @param {*} date 
  */
-export function addElementCurrentTemperature(city,date, currentTemp, sky, wind, rain, humidity, pressure, imgSky) {
+export function addElementCurrentTemperature(city, date, currentTemp, sky, wind, rain, humidity, pressure, imgSky) {
 
     const section = document.querySelector('section')
     const today = document.createElement('div')
@@ -14,16 +14,14 @@ export function addElementCurrentTemperature(city,date, currentTemp, sky, wind, 
 
     section.appendChild(today)
     today.classList.add('today')
-    
-    today.style.width =  todayHeader.offsetWidth-40+'px'
+
+    today.style.width = todayHeader.offsetWidth - 40 + 'px'
+
 
     today.innerHTML = `
                 <div class="country">
                     <h2>${city}</h2>
-                    <div class="country-select">
-                        <div class="circle selected"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
+                    <div class="country-select" id="${city}">
                     </div>
                 </div>
                 <div class="today-warp">
@@ -67,30 +65,18 @@ export function addElementCurrentTemperature(city,date, currentTemp, sky, wind, 
                     </article>
                 </div>`
 
+    const nbrCity = Array.from(getItem('City'))
+    const countrySelect = document.querySelector('#'+city)
 
-    /*const imgheader = todayHeader.querySelector('img')
+    for (const cityArray of nbrCity) {
+        
+        const circle = document.createElement('div')
+        countrySelect.appendChild(circle)
+        circle.classList.add('circle')
+        if(cityArray == city)
+            circle.classList.add('selected')
+    }
 
-    const todayMain = document.querySelector('.today-main')
-    const mainDate = todayMain.querySelector('.date')
-    const mainTemp = todayMain.querySelector('.temp')
-    const mainInfo = todayMain.querySelector('.info')
-
-    const todayFooter = document.querySelector('.today-footer')
-    const todayFooterWind = todayFooter.querySelector('#wind')
-    const todayFooterRain = todayFooter.querySelector('#rain')
-    const todayFooterPressure = todayFooter.querySelector('#pressure')
-    const todayFooterHumidity = todayFooter.querySelector('#humidity')
-
-    imgheader.src = imgSky
-
-    mainDate.innerHTML = date;
-    mainTemp.innerHTML = currentTemp
-    mainInfo.innerHTML = sky
-
-    todayFooterWind.innerHTML = wind
-    todayFooterRain.innerHTML = rain
-    todayFooterHumidity.innerHTML = humidity
-    todayFooterPressure.innerHTML = pressure*/
 }
 
 export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {

@@ -13,18 +13,16 @@ export function swipe(data) {
     const nbrCity = Array.from(getItem('City')).length
     let nbrCitySlected = 1
 
-console.log(allCityElem);
-    
-
     todayHeader.addEventListener('touchstart', event => {
         console.log(nbrCitySlected + '//' + nbrCity);
 
         if (nbrCitySlected < nbrCity) {
-            todayHeader.scrollLeft += todayHeaderOffesWidth -20
-            nbrCitySlected +=1
+            todayHeader.scrollLeft += todayHeaderOffesWidth - 20
+            nbrCitySlected += 1
         } else if (nbrCitySlected == nbrCity) {
             todayHeader.scrollLeft = 0
             nbrCitySlected = 1
         }
+
     })
 }
