@@ -790,7 +790,8 @@ main {
               justify-content: center; }
               main .addCountry .country .country-main .listCity .city .delete img {
                 width: 2dvh;
-                margin-right: 15px; }
+                margin-right: 15px;
+                cursor: pointer; }
       main .addCountry .country .country-footer {
         width: 80%;
         height: 10%; }
