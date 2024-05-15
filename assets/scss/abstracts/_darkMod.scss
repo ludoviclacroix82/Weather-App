@@ -12,7 +12,7 @@
 
     --svgFooter : #{$ligtherSvgFooter};
 
-    --buttonHover : #($ligtherButtonHover);
+    --buttonHover : #{$ligtherButtonHover};
 }
 
 .dark {
@@ -29,5 +29,5 @@
 
     --svgFooter : #{$darkSvgFooter};
 
-    --buttonHover : #($darkButtonHover);
+    --buttonHover : #{$darkButtonHover};
 }

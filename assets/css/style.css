@@ -25,7 +25,7 @@
   --svgColor: invert(1);
   --nowBackground: #60b5f4;
   --svgFooter: hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
-  --buttonHover: #($ligtherButtonHover); }
+  --buttonHover: #60b5f4; }
 
 .dark {
   --primaryColor: #fff;
@@ -37,7 +37,7 @@
   --svgColor: invert(1);
   --nowBackground: #60b5f4;
   --svgFooter: hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
-  --buttonHover: #($darkButtonHover); }
+  --buttonHover: #60b5f4; }
 
 *, *::before, *::after {
   margin: 0;
