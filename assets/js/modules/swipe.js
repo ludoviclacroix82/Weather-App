@@ -1,37 +1,26 @@
+import { getItem } from './localstorage.js'
+
 /**
  * Swipe : gère le défilement horizontal 
  * Les variables initialX, moveX et plannerOffset sont déclarées pour stocker les positions initiales et de déplacement lors de l'interaction tactile.
  * écouteur d'événements  touchstart touchmove
  * @param {*} reverse détermine la direction du défilement. -- boolean true : drag&drop ; false swipe noraml 
  */
-export function swipe(reverse) {
-    let initialX,currentX
+export function swipe(data) {
     const todayHeader = document.querySelector('.today-header')
-    const todayHeaderScrollLeft = todayHeader.scrollLeft    
     const todayHeaderOffesWidth = todayHeader.offsetWidth
-
-  
+    const nbrCity = Array.from(getItem('City')).length
+    let nbrCitySlected = 1
 
     todayHeader.addEventListener('touchstart', event => {
-        initialX = event.touches[0].pageX;
-        console.log('initialX : '+initialX);
+        console.log(nbrCitySlected + '//' + nbrCity);
 
-    });
-
-    todayHeader.addEventListener("touchmove", event => {
-        let currentX = event.touches[0].pageX;
-        console.log('currentX : ' + currentX);
-
-        console.log(todayHeaderScrollLeft);
-
-        if(currentX < initialX){
-            
-            todayHeader.scrollLeft += todayHeaderOffesWidth -30
-        }else
-        {
-            todayHeader.scrollLeft -= todayHeaderOffesWidth
+        if (nbrCitySlected < nbrCity) {
+            todayHeader.scrollLeft += todayHeaderOffesWidth - 10
+            nbrCitySlected +=1
+        } else if (nbrCitySlected == nbrCity) {
+            todayHeader.scrollLeft = 0
+            nbrCitySlected = 1
         }
-
-
-    });
+    })
 }
