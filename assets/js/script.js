@@ -1,5 +1,5 @@
 import { date, conversionKelvinCelsius, conversionWind } from './modules/conversionData.js'
-import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature } from './modules/addDataElement.js'
+import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature , showListCity } from './modules/addDataElement.js'
 import { imageSky } from './modules/imageSky.js'
 import { setItem, getItem } from './modules/localstorage.js'
 
@@ -16,6 +16,7 @@ let cpt = 0;
 const apiUrlWeather = (city, apiKey) => fetch('https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey)
 
 showTemperature(city, apiKey)
+showListCity()
 
 async function showTemperature(city, apiKey) {
 

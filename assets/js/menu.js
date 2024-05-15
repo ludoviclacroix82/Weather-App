@@ -1,5 +1,5 @@
 import { setItem, getItem } from './modules/localstorage.js'
-
+import {showListCity} from './modules/addDataElement.js'
 
 const btnAddCountry = document.querySelector('.add')
 const addCountry = document.querySelector('.addCountry')
@@ -21,4 +21,6 @@ btnSearch.addEventListener('click',event =>{
     cityArray.push(city.value)
     setItem('City',cityArray)
     city.value = '';
+
+    showListCity
 })

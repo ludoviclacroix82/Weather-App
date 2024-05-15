@@ -1,5 +1,5 @@
 button {
-    min-width: 100px;
+    min-width: 20px;
     padding: 5px;
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@ button {
 }
 
 #btnSearch {
-    width: 20px;
+    width: 25px;
     position: relative;
     right: 30px;
     cursor: pointer;
@@ -38,6 +38,6 @@ button {
     }
 
     img {
-        width: 2vh;
+        width: 2.5vh !important;
     }
 }

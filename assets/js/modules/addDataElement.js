@@ -1,3 +1,7 @@
+
+import { setItem, getItem } from './localstorage.js'
+
+
 /**
  * Ajout via Dom les data dans le today-wrap
  * @param {*} date 
@@ -71,4 +75,22 @@ export function addElementAlltemperature(hour,date, imgSky, tempMin, tempMax, ra
 
     daytempList.appendChild(articletemp)
 
+}
+export function showListCity(){
+
+	const listCityElem = document.querySelector('.listCity')
+    listCityElem.innerHTML=''
+
+	let arrayCityList = Array.from(getItem('City'))
+
+	for (const city of arrayCityList) {
+		const listCity = document.createElement('div')
+        const cityName = document.createElement('div')
+        listCity.classList.add('city')
+		listCityElem.appendChild(listCity)
+
+        listCity.appendChild(cityName)
+		cityName.innerHTML = city
+        cityName.classList.add('name')
+	}
 }
