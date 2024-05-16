@@ -1,5 +1,5 @@
 import { setItem, getItem } from './modules/localstorage.js'
-import {showListCity} from './modules/addDataElement.js'
+import {showListCity} from './modules/showData.js'
 
 const btnAddCountry = document.querySelector('.add')
 const addCountry = document.querySelector('.addCountry')

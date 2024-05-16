@@ -1,10 +1,11 @@
 import { date, conversionKelvinCelsius, conversionWind } from './modules/conversionData.js'
-import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature, showListCity } from './modules/addDataElement.js'
+import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature} from './modules/addData.js'
 import { imageSky } from './modules/imageSky.js'
-import {  getItem } from './modules/localstorage.js'
+import { getItem } from './modules/localstorage.js'
 import { swipe } from './modules/swipe.js'
 import { showAddCity } from './menu.js'
 import {showTemperature ,showAllTemperature} from './modules/apiFunction.js'
+import {showListCity} from './modules/showData.js'
 
 const dateCurrent = new Date();
 const arrayCity = Array.from(getItem('City'))
