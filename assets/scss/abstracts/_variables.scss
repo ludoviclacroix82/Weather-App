@@ -1,4 +1,5 @@
 //lighter
+$ligtherBodyColor : #fff;
 $ligtherPrimaryColor: #fff;
 $ligtherPrimaryColorOp85: #ffffff85;
 $ligtherSecondaryColor : #2e7bc3;
@@ -18,18 +19,19 @@ $ligtherButtonHover : #60b5f4;
 
 
 //dark
-$darkPrimaryColor: #fff;
-$darkPrimaryColorOp85: #ffffff85;
-$darkSecondaryColor: #2e7bc3;
-$darkBackgroundLinear: linear-gradient(0deg, rgba(44, 121, 193, 1) 0%, rgba(98, 184, 246, 1) 100%);
+$darkBodyColor : #444444;
+$darkPrimaryColor: #000;
+$darkPrimaryColorOp85: rgba(0, 0, 0, 0.85);
+$darkSecondaryColor: #09131a;
+$darkBackgroundLinear: linear-gradient(0deg, rgba(8, 17, 24, 1) 0%, rgba(28, 47, 60, 1) 100%);
 
 $darkPrimaryColorText: #fff;
-$darkSecondaryColorText: #2e7bc3;
-$darkCitySearchColorText : #000;
+$darkSecondaryColorText: #fff;
+$darkCitySearchColorText: #fff;
 
-$darkSvg : invert(1);
-$darkNowBackground : #60b5f4;
+$darkSvg: invert(100);
+$darkNowBackground: #1c2f3c ;
 
-$darkSvgFooter : hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
+$darkSvgFooter: invert(100);
 
-$darkButtonHover : #60b5f4;
+$darkButtonHover: #fff;

@@ -27,6 +27,7 @@ export function swipe(data) {
             nbrCitySlected += 1
 
             showAllTemperature(arrayCity[nbrCitySlected - 1], dateCurrent)
+            
         } else if (nbrCitySlected == nbrCity) {
             todayHeader.scrollLeft = 0
             nbrCitySlected = 1

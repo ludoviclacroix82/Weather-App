@@ -1,4 +1,5 @@
 .ligther {
+    --bodyColor :#{$ligtherBodyColor};
     --primaryColor: #{$ligtherPrimaryColor};
     --secondaryColor: #{$ligtherSecondaryColor};
     --primaryColorOp85 : #{$ligtherPrimaryColorOp85};
@@ -18,6 +19,7 @@
 }
 
 .dark {
+    --bodyColor :#{$darkBodyColor};
     --primaryColor: #{$darkPrimaryColor};
     --secondaryColor: #{$darkSecondaryColor};  
     --primaryColorOp85 : #{$darkPrimaryColorOp85};

@@ -2,6 +2,7 @@
 import { setItem, getItem } from './localstorage.js'
 import { imageSky } from './imageSky.js'
 import { conversionKelvinCelsius, date } from './conversionData.js'
+import { darkModAll } from './darkMod.js'
 
 
 /**
@@ -84,30 +85,37 @@ export function addElementtemparature(dataApi) {
 
     let cpt = 0
     const nbrAllTemp = 10
-
+    let hourFormat
     const dateCurrent = new Date();
+    let dataSunSet = dataApi.city.sunset
     let dataList = dataApi.list
 
     for (const data of dataList) {
 
         //image Sky 
-        const imgSky = imageSky(data.weather[0].main);
+        let imgSky, skyDarkMod
+
         // temp Celisus
-        const temperatureMin = conversionKelvinCelsius(data.main.temp_min);
-        const temperatureMax = conversionKelvinCelsius(data.main.temp_max);
+        const temperatureMin = conversionKelvinCelsius(data.main.temp_min)
+        const temperatureMax = conversionKelvinCelsius(data.main.temp_max)
         // curent day
-        const [dayTitle, month, day, hour, min] = date(dateCurrent);
-        const dateFormat = dayTitle + ' |  ' + month + ' ' + day;
+        const [dayTitle, month, day, hour, min] = date(dateCurrent)
+        const dateFormat = dayTitle + ' |  ' + month + ' ' + day
         //rain
         const rain = data.clouds.all + ' %';
         if (cpt <= nbrAllTemp)
             if (cpt === 0) {
-                addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain);
+                hourFormat = hour + ":" + min
+                skyDarkMod = darkModAll(dataSunSet, hourFormat)
+                imgSky = imageSky(data.weather[0].main, skyDarkMod)
+                addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
             } else {
                 let dateTime = new Date(data.dt_txt);
                 const [dayTitle, month, day, hour, min] = date(dateTime);
-                const hourFormat = hour + ":" + min;
-                addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain);
+                hourFormat = hour + ":" + min
+                skyDarkMod = darkModAll(dataSunSet, hourFormat)
+                imgSky = imageSky(data.weather[0].main, skyDarkMod)
+                addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
             }
         cpt++;
     }

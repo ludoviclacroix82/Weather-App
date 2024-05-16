@@ -16,6 +16,7 @@
   font-style: normal; }
 
 .ligther {
+  --bodyColor:#fff;
   --primaryColor: #fff;
   --secondaryColor: #2e7bc3;
   --primaryColorOp85: #ffffff85;
@@ -29,17 +30,18 @@
   --buttonHover: #60b5f4; }
 
 .dark {
-  --primaryColor: #fff;
-  --secondaryColor: #2e7bc3;
-  --primaryColorOp85: #ffffff85;
-  --backgroundLinear: linear-gradient(0deg, #2c79c1 0%, #62b8f6 100%);
+  --bodyColor:#444444;
+  --primaryColor: #000;
+  --secondaryColor: #09131a;
+  --primaryColorOp85: rgba(0, 0, 0, 0.85);
+  --backgroundLinear: linear-gradient(0deg, #081118 0%, #1c2f3c 100%);
   --primaryColorText: #fff;
-  --secondaryColorText: #2e7bc3;
-  --citySearchColorText: #000;
-  --svgColor: invert(1);
-  --nowBackground: #60b5f4;
-  --svgFooter: hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
-  --buttonHover: #60b5f4; }
+  --secondaryColorText: #fff;
+  --citySearchColorText: #fff;
+  --svgColor: invert(100);
+  --nowBackground: #1c2f3c;
+  --svgFooter: invert(100);
+  --buttonHover: #fff; }
 
 *, *::before, *::after {
   margin: 0;
@@ -55,7 +57,8 @@ html, body, div, article, section, main, aside, nav, header, footer, address, bl
 body {
   line-height: 1;
   font-family: sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  background-color: var(--bodyColor); }
 
 ul, ol {
   list-style: none; }
@@ -395,6 +398,7 @@ input[type=text] {
   width: 100%;
   height: 25px;
   background-color: var(--primaryColor);
+  color: var(--primaryColorText);
   border: 0;
   border-radius: 30px;
   padding: 10px;
@@ -790,7 +794,8 @@ main {
             border-radius: 30px;
             margin-bottom: 5px;
             display: flex;
-            flex-direction: row; }
+            flex-direction: row;
+            color: var(--citySearchColorText); }
             main .addCountry .country .country-main .listCity .city .name {
               width: 50%;
               height: 100%;
