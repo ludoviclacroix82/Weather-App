@@ -1,7 +1,7 @@
 import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature } from './addData.js'
 import { imageSky } from './imageSky.js'
 import { date, conversionKelvinCelsius, conversionWind } from './conversionData.js'
-import { cityDelete } from './deleteData.js'
+import {showErrorFindCity} from './showData.js'
 
 const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab';
 const apiUrlWeather = (city, apiKey) => 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
@@ -14,8 +14,8 @@ export function showTemperature(city, dateCurrent) {
 	fetch(apiUrlWeather(city, apiKey))
 		.then(response => {
 			if (!response.ok) {
-				console.log(city);
-				cityDelete(city)
+                console.log('no found')
+				showErrorFindCity(city)
 			}
 			return response.json();
 		})

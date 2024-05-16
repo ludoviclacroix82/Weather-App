@@ -10,7 +10,7 @@
   font-weight: 500;
   font-style: normal; }
 
-.poppins-semibold, header section .today .country h2, header section .today .today-warp .today-main .temp, main section h2 {
+.poppins-semibold, .error .message, header section .today .country h2, header section .today .today-warp .today-main .temp, main section h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal; }
@@ -18,6 +18,7 @@
 .ligther {
   --primaryColor: #fff;
   --secondaryColor: #2e7bc3;
+  --primaryColorOp85: #ffffff85;
   --backgroundLinear: linear-gradient(0deg, #2c79c1 0%, #62b8f6 100%);
   --primaryColorText: #fff;
   --secondaryColorText: #2e7bc3;
@@ -30,6 +31,7 @@
 .dark {
   --primaryColor: #fff;
   --secondaryColor: #2e7bc3;
+  --primaryColorOp85: #ffffff85;
   --backgroundLinear: linear-gradient(0deg, #2c79c1 0%, #62b8f6 100%);
   --primaryColorText: #fff;
   --secondaryColorText: #2e7bc3;
@@ -397,6 +399,26 @@ input[type=text] {
   border-radius: 30px;
   padding: 10px;
   font-size: 0.85rem; }
+
+.error {
+  z-index: 8;
+  position: absolute;
+  width: 100%;
+  height: 100dvh;
+  background-color: var(--primaryColorOp85);
+  justify-content: center;
+  align-items: center;
+  display: none; }
+  .error .message {
+    font-size: 1rem;
+    color: var(--secondaryColorText);
+    width: 50%;
+    text-align: center; }
+    .error .message::first-letter {
+      text-transform: capitalize; }
+
+.open {
+  display: flex !important; }
 
 nav {
   width: 100%;

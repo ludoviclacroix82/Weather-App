@@ -1,9 +1,11 @@
 .ligther {
     --primaryColor: #{$ligtherPrimaryColor};
     --secondaryColor: #{$ligtherSecondaryColor};
+    --primaryColorOp85 : #{$ligtherPrimaryColorOp85};
     --backgroundLinear: #{$ligtherBackgroundLinear};
 
     --primaryColorText: #{$ligtherPrimaryColorText};
+
     --secondaryColorText: #{$ligtherSecondaryColorText};
     --citySearchColorText : #{$ligtherCitySearchColorText};
 
@@ -17,10 +19,11 @@
 
 .dark {
     --primaryColor: #{$darkPrimaryColor};
-    --secondaryColor: #{$darkSecondaryColor};
+    --secondaryColor: #{$darkSecondaryColor};  
+    --primaryColorOp85 : #{$darkPrimaryColorOp85};
     --backgroundLinear: #{$darkBackgroundLinear};
 
-    --primaryColorText: #{$darkPrimaryColorText};
+    --primaryColorText: #{$darkPrimaryColorText};  
     --secondaryColorText: #{$darkSecondaryColorText};
     --citySearchColorText : #{$darkCitySearchColorText};
 
