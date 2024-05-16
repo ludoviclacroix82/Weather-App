@@ -1,6 +1,7 @@
 
 import { setItem, getItem } from './localstorage.js'
-
+import { imageSky } from './imageSky.js'
+import { conversionKelvinCelsius, date } from './conversionData.js'
 
 
 /**
@@ -17,7 +18,7 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
     today.classList.add('today')
 
     today.style.width = todayHeader.offsetWidth - 40 + 'px'
-
+    console.log('test');
 
     today.innerHTML = `
                 <div class="country">
@@ -67,24 +68,60 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
                 </div>`
 
     const nbrCity = Array.from(getItem('City'))
-    const countrySelect = document.querySelector('#'+city)
+    const countrySelect = document.querySelector('#' + city)
 
     for (const cityArray of nbrCity) {
-        
+
         const circle = document.createElement('div')
         countrySelect.appendChild(circle)
         circle.classList.add('circle')
-        if(cityArray == city)
+        if (cityArray == city)
             circle.classList.add('selected')
     }
 
 }
 
-export function addElementNowtemperature(city,imgSky, tempMin, tempMax, rain) {
+export function addElementtemparature(dataApi) {
+
+    let cpt = 0
+    const nbrAllTemp = 10
+
+    const dateCurrent = new Date();
+    let dataList = dataApi.list
+
+    for (const data of dataList) {
+
+        //image Sky 
+        const imgSky = imageSky(data.weather[0].main);
+        // temp Celisus
+        const temperatureMin = conversionKelvinCelsius(data.main.temp_min);
+        const temperatureMax = conversionKelvinCelsius(data.main.temp_max);
+        // curent day
+        const [dayTitle, month, day, hour, min] = date(dateCurrent);
+        const dateFormat = dayTitle + ' |  ' + month + ' ' + day;
+        //rain
+        const rain = data.clouds.all + ' %';
+        if(cpt <= nbrAllTemp )
+            if (cpt === 0) {
+                addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain);
+            } else {
+                let dateTime = new Date(data.dt_txt);
+                const [dayTitle, month, day, hour, min] = date(dateTime);
+                const hourFormat = hour + ":" + min;
+                addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain);
+            }
+        cpt++;
+    }
+}
+
+
+
+export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
 
     const daytempListNow = document.querySelector('.day-temp')
+    const dayNow = daytempListNow.querySelector('.now')
+    console.log(dayNow);
     const articletemp = document.createElement('article');
-
     articletemp.innerHTML = `
         <div class="day-temp-header">Now</div>
         <div class="day-temp-main">
@@ -100,24 +137,34 @@ export function addElementNowtemperature(city,imgSky, tempMin, tempMax, rain) {
 
 }
 
-export function addElementAlltemperature(city,hour, date, imgSky, tempMin, tempMax, rain) {
+export function addElementAlltemperature(hour, date, imgSky, tempMin, tempMax, rain) {
 
-    const daytempList = document.querySelector('.day-temp-list')
-    const articletemp = document.createElement('article');
     const allTempElem = document.querySelector('#allTemp')
-    const allTempTitle = allTempElem.querySelector('h2')
+    const daytempListNow = allTempElem.querySelector('.day-temp')
+    let daytempList;
 
-    allTempTitle.innerHTML = date
+    if (daytempListNow.querySelector('.day-temp-list') === null) {
+        daytempList = document.createElement('div');
+        daytempListNow.appendChild(daytempList);
+        daytempList.classList.add('day-temp-list');
+    } else {
+        daytempList = allTempElem.querySelector('.day-temp-list');
+    }
+
+    const articletemp = document.createElement('article');
+    const allTempTitle = allTempElem.querySelector('h2');
+
+    allTempTitle.innerHTML = date;
     articletemp.innerHTML = `
         <div class="day-temp-header">${hour}</div>
         <div class="day-temp-main">
-        <img class="svg" src="${imgSky}" alt="">
+            <img class="svg" src="${imgSky}" alt="">
         </div>
         <div class="day-temp-footer">
-        <p class="temperature">${tempMin}/${tempMax}°</p>
-        <p class="rain">${rain}</p>
-        </div>`
+            <p class="temperature">${tempMin}/${tempMax}°</p>
+            <p class="rain">${rain}</p>
+        </div>`;
 
-    daytempList.appendChild(articletemp)
+    daytempList.appendChild(articletemp);
 
 }
