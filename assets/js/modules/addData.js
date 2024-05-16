@@ -18,7 +18,6 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
     today.classList.add('today')
 
     today.style.width = todayHeader.offsetWidth - 40 + 'px'
-    console.log('test');
 
     today.innerHTML = `
                 <div class="country">
@@ -101,7 +100,7 @@ export function addElementtemparature(dataApi) {
         const dateFormat = dayTitle + ' |  ' + month + ' ' + day;
         //rain
         const rain = data.clouds.all + ' %';
-        if(cpt <= nbrAllTemp )
+        if (cpt <= nbrAllTemp)
             if (cpt === 0) {
                 addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain);
             } else {
@@ -120,7 +119,6 @@ export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
 
     const daytempListNow = document.querySelector('.day-temp')
     const dayNow = daytempListNow.querySelector('.now')
-    console.log(dayNow);
     const articletemp = document.createElement('article');
     articletemp.innerHTML = `
         <div class="day-temp-header">Now</div>

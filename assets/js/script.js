@@ -9,7 +9,6 @@ import { showListCity } from './modules/showData.js'
 
 const dateCurrent = new Date();
 const arrayCity = Array.from(getItem('City'))
-console.log(arrayCity.length);
 
 
 initial(arrayCity, dateCurrent)
@@ -22,16 +21,15 @@ initial(arrayCity, dateCurrent)
  * @param {*} apiUrlWeather url de l'api
  */
 function initial(apiKey, dateCurrent) {
-    let cpt =0;
+    let cpt = 0;
 
     if (arrayCity.length == 0) {
         showAddCity()
     } else {
         for (const city of arrayCity) {
-            console.log('cpt:'+cpt);
             showTemperature(city, dateCurrent)
-            if(cpt === 0)
-               showAllTemperature(city, dateCurrent)
+            if (cpt === 0)
+                showAllTemperature(city, dateCurrent)
             cpt++
         }
         showListCity()
