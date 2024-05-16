@@ -378,6 +378,8 @@ button {
     cursor: pointer; }
     button h2:hover {
       color: var(--buttonHover); }
+    button h2::first-letter {
+      text-transform: capitalize; }
   button .minimize {
     rotate: 180deg !important;
     width: 2vh !important; }
@@ -398,7 +400,7 @@ input[type=text] {
   width: 100%;
   height: 25px;
   background-color: var(--primaryColor);
-  color: var(--primaryColorText);
+  color: var(--searchColorText);
   border: 0;
   border-radius: 30px;
   padding: 10px;
@@ -469,9 +471,11 @@ footer {
       color: var(--primaryColorText);
       font-size: 1rem;
       padding: 5px 0px; }
+      footer .days-list h2::first-letter {
+        text-transform: capitalize; }
     footer .days-list .day-item {
       height: 80%;
-      overflow-y: auto;
+      overflow: hidden;
       margin-top: 5px; }
       footer .days-list .day-item .day {
         width: 90%;

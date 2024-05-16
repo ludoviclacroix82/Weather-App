@@ -14,6 +14,9 @@ button {
         &:hover {
             color: var(--buttonHover)
         }
+        &::first-letter{
+            text-transform: capitalize;
+        }
     }
 
     .minimize {
