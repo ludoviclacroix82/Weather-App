@@ -2,7 +2,7 @@ import { setItem, getItem } from './localstorage.js'
 import {showListCity} from './showData.js'
 
 /**
- * Suppresion d'une villedans le localStorage  pour la liste 
+ * Suppresion d'une ville dans le localStorage  pour la liste 
  * @param {*} city nom de la ville
  */
 export function cityListDelete(city){

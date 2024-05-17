@@ -1,3 +1,10 @@
+
+/**
+ * Function qui va asigner les icones pour chaque temperature
+ * @param {*} sky le visuel du ciel ( nuageux ....)
+ * @param {*} drakMod donné de la fonction du darkmod (night/day)
+ * @returns l'icones 
+ */
 export function imageSky(sky,drakMod) {
     let imgSky
 

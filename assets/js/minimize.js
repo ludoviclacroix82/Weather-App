@@ -7,7 +7,9 @@ const btnDays = document.querySelector('.days')
 const btn = btnDays.querySelector('button')
 const btnimg = btn.querySelector('img')
 
-
+/**
+ * permet de changer le css en fucntion de l'affiche du graphique
+ */
 btn.addEventListener('click',event =>{
 
     header.classList.toggle('minimize-header')

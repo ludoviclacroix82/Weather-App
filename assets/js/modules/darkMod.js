@@ -1,5 +1,10 @@
 import { date } from "./conversionData.js";
 
+/**
+ * function qui gére le darkmod en function de la date current
+ * @param {*} dataApi donnée de l'api
+ * @returns 
+ */
 export function darkMod(dataApi) {
     const body = document.querySelector('body')
     let modeImage
@@ -13,7 +18,9 @@ export function darkMod(dataApi) {
     const [dayTitle, month, day, hour, min] = date(sunSet)
     const sunSetFormat = hour + ":" + min
 
-
+    /**
+     * gere le dark mod en fonctionde l'heure 
+     */
     if (targetDate < sunSetFormat && targetDate > "08:00") {
         modeImage = 'day'
         body.classList.add('ligther')
@@ -26,6 +33,12 @@ export function darkMod(dataApi) {
     return modeImage
 }
 
+/**
+ * la gestion des icones pour les temperature prochaine en fucntionde l'heure de celles-ci
+ * @param {*} dataSunSet coucher du soleil
+ * @param {*} hours heures des temperatures prochaines
+ * @returns 
+ */
 export function darkModAll(dataSunSet, hours) {
 
     let modeImage
