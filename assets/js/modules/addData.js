@@ -1,5 +1,5 @@
 
-import { setItem, getItem } from './localstorage.js'
+import { getItem } from './localstorage.js'
 import { imageSky } from './imageSky.js'
 import { conversionKelvinCelsius, date } from './conversionData.js'
 import { darkModAll } from './darkMod.js'
@@ -85,6 +85,8 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
 
 export function addElementtemparature(dataApi) {
 
+    console.log(dataApi);
+
     let cpt = 0
     const nbrAllTemp = 10
     let hourFormat
@@ -94,8 +96,9 @@ export function addElementtemparature(dataApi) {
     let arrayTempGraph = []
     let arrayHourGraph = []
 
-    for (const data of dataList) {
+    const city = dataApi.city.name
 
+    for (const data of dataList) {
 
         //image Sky 
         let imgSky, skyDarkMod
@@ -118,26 +121,38 @@ export function addElementtemparature(dataApi) {
                 hourFormat = hour + ":" + min
                 skyDarkMod = darkModAll(dataSunSet, hourFormat)
                 imgSky = imageSky(data.weather[0].main, skyDarkMod)
-                addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
+                addElementNowtemperature(cpt, city, imgSky, temperatureMin, temperatureMax, rain)
             } else {
                 let dateTime = new Date(data.dt_txt);
                 const [dayTitle, month, day, hour, min] = date(dateTime)
                 hourFormat = hour + ":" + min
                 skyDarkMod = darkModAll(dataSunSet, hourFormat)
                 imgSky = imageSky(data.weather[0].main, skyDarkMod)
-                addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
+                addElementAlltemperature(city, hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
             }
 
         cpt++;
+
     }
-    graphicTemp(arrayTempGraph, arrayHourGraph);
+    graphicTemp(city, arrayTempGraph, arrayHourGraph);
+
 }
 
-export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
+export function addElementNowtemperature(cpt, city, imgSky, tempMin, tempMax, rain) {
 
-    const daytempListNow = document.querySelector('.day-temp')
-    const dayNow = daytempListNow.querySelector('.now')
+    const daytemp = document.querySelector('.day-temp')
+    const dayTempList = document.createElement('div')
+    daytemp.appendChild(dayTempList)
+    dayTempList.id = 'temp' + city
+    dayTempList.classList.add('day-temp-city')
+
+    if (cpt === 0)
+        dayTempList.classList.add('open')
+
+
+    //const dayNow = daytempListNow.querySelector('.now')
     const articletemp = document.createElement('article');
+
     articletemp.innerHTML = `
         <div class="day-temp-header">Now</div>
         <div class="day-temp-main">
@@ -148,24 +163,24 @@ export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
         <p class="rain">${rain}</p>
         </div>`
 
-    daytempListNow.prepend(articletemp)
+    dayTempList.appendChild(articletemp)
     articletemp.classList.add('now')
 
 }
 
-export function addElementAlltemperature(hour, date, imgSky, tempMin, tempMax, rain) {
+export function addElementAlltemperature(city, hour, date, imgSky, tempMin, tempMax, rain) {
 
     const allTempElem = document.querySelector('#allTemp')
     const daytempListNow = allTempElem.querySelector('.day-temp')
-    let daytempList;
+    const dayTempList = daytempListNow.querySelector('#temp' + city)
 
-    if (daytempListNow.querySelector('.day-temp-list') === null) {
+    /*if (daytempListNow.querySelector('.day-temp-list') === null) {
         daytempList = document.createElement('div');
         daytempListNow.appendChild(daytempList);
         daytempList.classList.add('day-temp-list');
     } else {
         daytempList = allTempElem.querySelector('.day-temp-list');
-    }
+    }*/
 
     const articletemp = document.createElement('article');
     const allTempTitle = allTempElem.querySelector('h2');
@@ -181,6 +196,7 @@ export function addElementAlltemperature(hour, date, imgSky, tempMin, tempMax, r
             <p class="rain">${rain}</p>
         </div>`;
 
-    daytempList.appendChild(articletemp);
+    articletemp.classList.add('day-temp-list')
+    dayTempList.appendChild(articletemp);
 
 }

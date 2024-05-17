@@ -1,7 +1,3 @@
-import { getItem } from './localstorage.js'
-import { showAllTemperature } from './apiFunction.js'
-import { addElementNowtemperature } from './addData.js'
-
 /**
  * Swipe : gère le défilement horizontal 
  * Les variables initialX, moveX et plannerOffset sont déclarées pour stocker les positions initiales et de déplacement lors de l'interaction tactile.
@@ -11,29 +7,57 @@ import { addElementNowtemperature } from './addData.js'
 export function swipe(data) {
     const todayHeader = document.querySelector('.today-header')
     const todayHeaderOffesWidth = todayHeader.offsetWidth
-    const nbrCity = Array.from(getItem('City')).length
-    let nbrCitySlected = 1
+    let nbrCitySlected = 0
 
     const dateCurrent = new Date();
-
     todayHeader.addEventListener('touchend', event => {
-        //console.log(nbrCitySlected + '//' + nbrCity);
-        const arrayCity = Array.from(getItem('City'))
-        const dayTempList = document.querySelector('.day-temp')
-        dayTempList.innerHTML = ''
 
-        if (nbrCitySlected < nbrCity) {
+        const citySelect = document.querySelectorAll('.country-select')
+        const dayTempList = document.querySelector('.day-temp')
+
+        const dayItem = document.querySelector('.day-item')
+
+
+        if (nbrCitySlected < citySelect.length - 1) {
+
             todayHeader.scrollLeft += todayHeaderOffesWidth - 20
             nbrCitySlected += 1
+            const citySlectOpen = dayTempList.querySelector('#temp' + citySelect[nbrCitySlected].id)
+            citySlectOpen.classList.add('open')
 
-            showAllTemperature(arrayCity[nbrCitySlected - 1], dateCurrent)
-            
-            
-        } else if (nbrCitySlected == nbrCity) {
+            const canvasSlect = dayItem.querySelector('#myChart-' + citySelect[nbrCitySlected].id)
+            canvasSlect.classList.add('open-canvas')
+
+            for (const cityNoSelect of citySelect) {
+                if (cityNoSelect.id != citySelect[nbrCitySlected].id) {
+                    const citySlectNoOpen = dayTempList.querySelector('#temp' + cityNoSelect.id)
+                    citySlectNoOpen.classList.remove('open')
+
+                    const canvasNoSlect = dayItem.querySelector('#myChart-' + cityNoSelect.id)
+
+                    canvasNoSlect.classList.remove('open-canvas')
+                }
+            }
+
+        } else {
             todayHeader.scrollLeft = 0
-            nbrCitySlected = 1
+            nbrCitySlected = 0
 
-            showAllTemperature(arrayCity[nbrCitySlected - 1], dateCurrent)
+            const citySlectOpen = dayTempList.querySelector('#temp' + citySelect[nbrCitySlected].id)
+            citySlectOpen.classList.add('open')
+
+            const canvasSlect = dayItem.querySelector('#myChart-' + citySelect[nbrCitySlected].id)
+            canvasSlect.classList.add('open-canvas')
+
+            for (const cityNoSelect of citySelect) {
+                if (cityNoSelect.id != citySelect[nbrCitySlected].id) {
+                    const citySlectNoOpen = dayTempList.querySelector('#temp' + cityNoSelect.id)
+                    citySlectNoOpen.classList.remove('open')
+
+                    const canvasNoSlect = dayItem.querySelector('#myChart-' + cityNoSelect.id)
+                    canvasNoSlect.classList.remove('open-canvas')
+                }
+            }
 
         }
 

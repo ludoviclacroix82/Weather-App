@@ -30,64 +30,69 @@ main {
             display: flex;
             flex-direction: row;
 
-            %article {
-                width: 85px;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 5px 0px;
-
-                .day-temp-header {
-                    @extend .poppins-medium;
-                    height: 10%;
-                }
-
-                .day-temp-main {
-                    height: 60%;
-                    display: flex;
-                    align-items: center;
-
-                    img {
-                        width: 4.5vh;
-                    }
-                }
-
-                .day-temp-footer {
-                    @extend .poppins-regular;
-                    height: 30%;
-                    font-size: 0.75rem;
+            .open-temp-city{
+                display:flex !important;
+            }
+            .day-temp-city {
+                flex-direction: row;
+                display: none;
+                
+                %article {
+                    width: 85px;
+                    height: 100%;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                    align-items: center;
+                    padding: 5px 0px;
 
-                    .temperature {
-                        text-align: center;
+                    .day-temp-header {
+                        @extend .poppins-medium;
+                        height: 10%;
                     }
 
-                    .rain::after {
-                        content: 'rain';
-                        margin-left: 5px;
+                    .day-temp-main {
+                        height: 60%;
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            width: 4.5vh;
+                        }
+                    }
+
+                    .day-temp-footer {
+                        @extend .poppins-regular;
+                        height: 30%;
+                        font-size: 0.75rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        .temperature {
+                            text-align: center;
+                        }
+
+                        .rain::after {
+                            content: 'rain';
+                            margin-left: 5px;
+                        }
                     }
                 }
-            }
 
-            .now {
-                @extend %article;
-                background-color: var(--nowBackground);
-                border: 0;
-                border-radius: 15px;
-            }
+                .now {
+                    @extend %article;
+                    background-color: var(--nowBackground);
+                    border: 0;
+                    border-radius: 15px;
+                }
 
-            .day-temp-list {
-                display: flex;
-                flex-direction: row;
-
-                article {
+                .day-temp-list {
                     @extend %article;
                 }
+
             }
+
         }
     }
 
@@ -167,21 +172,23 @@ main {
                                 @extend .poppins-regular;
                                 font-size: 1rem;
                                 color: var(--citySearchColorText);
-                                &::first-letter{
+
+                                &::first-letter {
                                     text-transform: capitalize;
                                 }
                             }
-                            
+
                         }
-                        .delete{
+
+                        .delete {
                             width: 50%;
                             height: 100%;
                             display: flex;
                             flex-direction: column;
-                            align-items:end;
+                            align-items: end;
                             justify-content: center;
-                            
-                            img{
+
+                            img {
                                 width: 2dvh;
                                 margin-right: 15px;
                                 cursor: pointer;

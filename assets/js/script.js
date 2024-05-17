@@ -1,7 +1,7 @@
 import { getItem } from './modules/localstorage.js'
 import { swipe } from './modules/swipe.js'
 import { showAddCity } from './menu.js'
-import { showTemperature, showAllTemperature } from './modules/apiFunction.js'
+import { showTemperature} from './modules/apiFunction.js'
 import { showListCity } from './modules/showData.js'
 
 const dateCurrent = new Date();
@@ -17,17 +17,13 @@ initial(arrayCity, dateCurrent)
  * @param {*} dateCurrent date en cours
  * @param {*} apiUrlWeather url de l'api
  */
-function initial(apiKey, dateCurrent) {
-    let cpt = 0;
+async function initial(apiKey, dateCurrent) {
 
     if (arrayCity.length == 0) {
         showAddCity()
     } else {
         for (const city of arrayCity) {
-            showTemperature(city, dateCurrent)
-            if (cpt === 0)
-                showAllTemperature(city, dateCurrent)
-            cpt++
+            await showTemperature(city, dateCurrent)
         }
         showListCity()
         swipe();

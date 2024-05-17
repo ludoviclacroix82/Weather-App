@@ -23,8 +23,6 @@ export function darkMod(dataApi) {
         body.classList.add('dark')
         body.classList.remove('ligther')
     }
-    console.log(modeImage +'//'+targetDate);
-
     return modeImage
 }
 

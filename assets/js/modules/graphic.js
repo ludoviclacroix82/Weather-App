@@ -1,21 +1,21 @@
 import { conversionKelvinCelsius, date } from "./conversionData.js";
 
-export function graphicTemp(dataGraphTemp, dataGraphHour) {
+export function graphicTemp(city, dataGraphTemp, dataGraphHour) {
 
     const dayItemElem = document.querySelector('.day-item')
 
-    if (document.querySelector('canvas') === null) {
+    if (document.querySelector('canvas') == null) {
         const canvasElem = document.createElement('canvas')
         dayItemElem.appendChild(canvasElem)
-        canvasElem.id = 'myChart'
+        canvasElem.id = 'myChart-' + city
+        canvasElem.classList.add('open-canvas')
     } else {
-        dayItemElem.innerHTML = ''
         const canvasElem = document.createElement('canvas')
         dayItemElem.appendChild(canvasElem)
-        canvasElem.id = 'myChart'
+        canvasElem.id = 'myChart-' + city
     }
 
-    const ctx = document.getElementById('myChart');
+    const ctx = document.getElementById('myChart-' + city);
 
     const arraytemp = []
     const arrayHour = []
@@ -40,8 +40,8 @@ export function graphicTemp(dataGraphTemp, dataGraphHour) {
                 data: arraytemp,
                 borderWidth: 1,
                 borderColor: '#fff',
-                pointStyle : false,                
-            }],          
+                pointStyle: false,
+            }],
         },
         options: {
             scales: {
@@ -50,7 +50,7 @@ export function graphicTemp(dataGraphTemp, dataGraphHour) {
                     ticks: {
                         color: '#fff'
                     }
-                    
+
                 },
                 x: {
                     beginAtZero: true,

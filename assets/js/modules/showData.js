@@ -1,4 +1,4 @@
-import { setItem, getItem } from './localstorage.js'
+import { getItem } from './localstorage.js'
 import { cityListDelete } from './deleteData.js'
 import { cityDelete } from './deleteData.js'
 import { showAddCity } from '../menu.js'

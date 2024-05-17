@@ -1,11 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-.poppins-regular, input[type=text], footer .days-list .day-item .day .rain, footer .days-list .day-item .day .temperature, header section .today .today-warp .today-main, header section .today .today-footer article, main section .day-temp, main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer, main .addCountry .country .country-main .listCity .city .name h2 {
+.poppins-regular, input[type=text], header section .today .today-warp .today-main, header section .today .today-footer article, main section .day-temp, main section .day-temp .day-temp-city .now .day-temp-footer, main section .day-temp .day-temp-city .day-temp-list .day-temp-footer, main .addCountry .country .country-main .listCity .city .name h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal; }
 
-.poppins-medium, button h2, footer .days-list h2, footer .days-list .day-item .day .name, main section .day-temp .now .day-temp-header, main section .day-temp .day-temp-list article .day-temp-header {
+.poppins-medium, button h2, footer .days-list h2, main section .day-temp .day-temp-city .now .day-temp-header, main section .day-temp .day-temp-city .day-temp-list .day-temp-header {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal; }
@@ -479,39 +479,10 @@ footer {
       height: 80%;
       overflow: hidden;
       margin-top: 5px; }
-      footer .days-list .day-item .day {
-        width: 90%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 auto;
-        padding: 10px 0px; }
-        footer .days-list .day-item .day .name {
-          width: 20%;
-          color: var(--primaryColorText);
-          font-size: 1rem; }
-        footer .days-list .day-item .day .rain {
-          width: 60%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          color: var(--primaryColorText);
-          font-size: 0.85rem; }
-          footer .days-list .day-item .day .rain img {
-            height: 3vh;
-            margin-right: 10px;
-            margin-bottom: 5px; }
-          footer .days-list .day-item .day .rain p {
-            font-size: 0.85rem; }
-            footer .days-list .day-item .day .rain p::after {
-              content: "rain";
-              margin-right: 5px; }
-        footer .days-list .day-item .day .temperature {
-          width: 20%;
-          text-align: right;
-          color: var(--primaryColorText);
-          font-size: 0.85rem; }
+      footer .days-list .day-item .open-canvas {
+        display: block !important; }
+      footer .days-list .day-item canvas {
+        display: none !important; }
   footer .days {
     width: 100%;
     display: flex;
@@ -715,40 +686,42 @@ main {
       margin-top: 5%;
       display: flex;
       flex-direction: row; }
-      main section .day-temp .now, main section .day-temp .day-temp-list article {
-        width: 85px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 5px 0px; }
-        main section .day-temp .now .day-temp-header, main section .day-temp .day-temp-list article .day-temp-header {
-          height: 10%; }
-        main section .day-temp .now .day-temp-main, main section .day-temp .day-temp-list article .day-temp-main {
-          height: 60%;
-          display: flex;
-          align-items: center; }
-          main section .day-temp .now .day-temp-main img, main section .day-temp .day-temp-list article .day-temp-main img {
-            width: 4.5vh; }
-        main section .day-temp .now .day-temp-footer, main section .day-temp .day-temp-list article .day-temp-footer {
-          height: 30%;
-          font-size: 0.75rem;
+      main section .day-temp .open-temp-city {
+        display: flex !important; }
+      main section .day-temp .day-temp-city {
+        flex-direction: row;
+        display: none; }
+        main section .day-temp .day-temp-city .now, main section .day-temp .day-temp-city .day-temp-list {
+          width: 85px;
+          height: 100%;
           display: flex;
           flex-direction: column;
-          justify-content: center; }
-          main section .day-temp .now .day-temp-footer .temperature, main section .day-temp .day-temp-list article .day-temp-footer .temperature {
-            text-align: center; }
-          main section .day-temp .now .day-temp-footer .rain::after, main section .day-temp .day-temp-list article .day-temp-footer .rain::after {
-            content: 'rain';
-            margin-left: 5px; }
-      main section .day-temp .now {
-        background-color: var(--nowBackground);
-        border: 0;
-        border-radius: 15px; }
-      main section .day-temp .day-temp-list {
-        display: flex;
-        flex-direction: row; }
+          justify-content: center;
+          align-items: center;
+          padding: 5px 0px; }
+          main section .day-temp .day-temp-city .now .day-temp-header, main section .day-temp .day-temp-city .day-temp-list .day-temp-header {
+            height: 10%; }
+          main section .day-temp .day-temp-city .now .day-temp-main, main section .day-temp .day-temp-city .day-temp-list .day-temp-main {
+            height: 60%;
+            display: flex;
+            align-items: center; }
+            main section .day-temp .day-temp-city .now .day-temp-main img, main section .day-temp .day-temp-city .day-temp-list .day-temp-main img {
+              width: 4.5vh; }
+          main section .day-temp .day-temp-city .now .day-temp-footer, main section .day-temp .day-temp-city .day-temp-list .day-temp-footer {
+            height: 30%;
+            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; }
+            main section .day-temp .day-temp-city .now .day-temp-footer .temperature, main section .day-temp .day-temp-city .day-temp-list .day-temp-footer .temperature {
+              text-align: center; }
+            main section .day-temp .day-temp-city .now .day-temp-footer .rain::after, main section .day-temp .day-temp-city .day-temp-list .day-temp-footer .rain::after {
+              content: 'rain';
+              margin-left: 5px; }
+        main section .day-temp .day-temp-city .now {
+          background-color: var(--nowBackground);
+          border: 0;
+          border-radius: 15px; }
   main .addCountry {
     position: absolute;
     background-color: #fff;

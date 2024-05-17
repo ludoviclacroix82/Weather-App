@@ -46,13 +46,14 @@ export function showTemperature(city, dateCurrent) {
             const dateFormat = dayTitle + ' |  ' + month + ' ' + day;
 
             addElementCurrentTemperature(city, dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky);
+            addElementtemparature(data)
         })
         .catch(error => {
             console.error('Erreur:', error);
         });
 }
 
-export function showAllTemperature(city, dateCurrent) {
+/*export function showAllTemperature(city, dateCurrent) {
     fetch(apiUrlWeather(city, apiKey))
         .then(response => {
             if (!response.ok) {
@@ -66,7 +67,7 @@ export function showAllTemperature(city, dateCurrent) {
         .catch(error => {
             console.error('Erreur:', error);
         });
-}
+}*/
 
 /*export function unsplahApi(city) {
     fetch(apiUrlUnsplash = (city, apiKeyUnsplash))
