@@ -3,7 +3,7 @@ import { setItem, getItem } from './localstorage.js'
 import { imageSky } from './imageSky.js'
 import { conversionKelvinCelsius, date } from './conversionData.js'
 import { darkModAll } from './darkMod.js'
-
+import { graphicTemp } from './graphic.js'
 
 /**
  * Ajout via Dom les data dans le today-wrap
@@ -89,8 +89,11 @@ export function addElementtemparature(dataApi) {
     const dateCurrent = new Date();
     let dataSunSet = dataApi.city.sunset
     let dataList = dataApi.list
+    let arrayTempGraph = []
+    let arrayHourGraph = []
 
     for (const data of dataList) {
+
 
         //image Sky 
         let imgSky, skyDarkMod
@@ -103,25 +106,32 @@ export function addElementtemparature(dataApi) {
         const dateFormat = dayTitle + ' |  ' + month + ' ' + day
         //rain
         const rain = data.clouds.all + ' %';
+
         if (cpt <= nbrAllTemp)
-            if (cpt === 0) {
-                hourFormat = hour + ":" + min
-                skyDarkMod = darkModAll(dataSunSet, hourFormat)
-                imgSky = imageSky(data.weather[0].main, skyDarkMod)
-                addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
-            } else {
-                let dateTime = new Date(data.dt_txt);
-                const [dayTitle, month, day, hour, min] = date(dateTime);
-                hourFormat = hour + ":" + min
-                skyDarkMod = darkModAll(dataSunSet, hourFormat)
-                imgSky = imageSky(data.weather[0].main, skyDarkMod)
-                addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
-            }
+
+            // Graphic data Hour / Temp
+            arrayHourGraph.push(data.dt_txt)
+            arrayTempGraph.push(data.main.temp)
+            
+
+        if (cpt === 0) {
+            hourFormat = hour + ":" + min
+            skyDarkMod = darkModAll(dataSunSet, hourFormat)
+            imgSky = imageSky(data.weather[0].main, skyDarkMod)
+            addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
+        } else {
+            let dateTime = new Date(data.dt_txt);
+            const [dayTitle, month, day, hour, min] = date(dateTime)
+            hourFormat = hour + ":" + min
+            skyDarkMod = darkModAll(dataSunSet, hourFormat)
+            imgSky = imageSky(data.weather[0].main, skyDarkMod)
+            addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
+        }
+
         cpt++;
     }
+    graphicTemp(arrayTempGraph, arrayHourGraph);
 }
-
-
 
 export function addElementNowtemperature(imgSky, tempMin, tempMax, rain) {
 

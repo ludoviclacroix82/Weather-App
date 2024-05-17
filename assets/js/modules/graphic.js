@@ -1,7 +1,6 @@
-import { conversionKelvinCelsius } from "./conversionData.js";
+import { conversionKelvinCelsius, date } from "./conversionData.js";
 
-export function graphicTemp(data) {
-
+export function graphicTemp(dataGraphTemp, dataGraphHour) {
 
     const dayItemElem = document.querySelector('.day-item')
 
@@ -9,8 +8,8 @@ export function graphicTemp(data) {
         const canvasElem = document.createElement('canvas')
         dayItemElem.appendChild(canvasElem)
         canvasElem.id = 'myChart'
-    }else{
-        dayItemElem.innerHTML=''
+    } else {
+        dayItemElem.innerHTML = ''
         const canvasElem = document.createElement('canvas')
         dayItemElem.appendChild(canvasElem)
         canvasElem.id = 'myChart'
@@ -19,28 +18,50 @@ export function graphicTemp(data) {
     const ctx = document.getElementById('myChart');
 
     const arraytemp = []
+    const arrayHour = []
 
-    console.log(data.list);
-    for (const dataList of data.list) {
-        const tempFormat = conversionKelvinCelsius(dataList.main.temp)
+    for (const dataTemp of dataGraphTemp) {
+        const tempFormat = conversionKelvinCelsius(dataTemp)
         arraytemp.push(tempFormat)
     }
-    console.log(arraytemp);
+
+    for (const dataHour of dataGraphHour) {
+        const [dayTitle, month, day, hour, min] = date(new Date(dataHour))
+        let hourFormat = hour + ":" + min
+        arrayHour.push(hourFormat)
+    }
 
     new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: arrayHour,
             datasets: [{
-                label: '# of Votes',
+                label: 'temperatures',
                 data: arraytemp,
-                borderWidth: 1
-            }]
+                borderWidth: 1,
+                borderColor: '#fff',
+                pointStyle : false,                
+            }],          
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#fff'
+                    }
+                    
+                },
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#fff'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
                 }
             }
         }

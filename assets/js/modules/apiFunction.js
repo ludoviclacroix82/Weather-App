@@ -3,7 +3,6 @@ import { imageSky } from './imageSky.js'
 import { date, conversionKelvinCelsius, conversionWind } from './conversionData.js'
 import { showErrorFindCity } from './showData.js'
 import { darkMod } from './darkMod.js';
-import { graphicTemp } from './graphic.js';
 
 const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab';
 const apiUrlWeather = (city, apiKey) => 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey;
@@ -44,9 +43,6 @@ export function showTemperature(city, dateCurrent) {
             const dateFormat = dayTitle + ' |  ' + month + ' ' + day;
 
             addElementCurrentTemperature(city, dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky);
-            graphicTemp(data.list)
-
-
         })
         .catch(error => {
             console.error('Erreur:', error);
@@ -63,7 +59,6 @@ export function showAllTemperature(city, dateCurrent) {
         .then(data => {
 
             addElementtemparature(data)
-            graphicTemp(data);
         })
         .catch(error => {
             console.error('Erreur:', error);
