@@ -1,6 +1,3 @@
-import { date, conversionKelvinCelsius, conversionWind } from './modules/conversionData.js'
-import { addElementCurrentTemperature, addElementNowtemperature, addElementAlltemperature } from './modules/addData.js'
-import { imageSky } from './modules/imageSky.js'
 import { getItem } from './modules/localstorage.js'
 import { swipe } from './modules/swipe.js'
 import { showAddCity } from './menu.js'
