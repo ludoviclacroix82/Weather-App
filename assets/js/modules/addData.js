@@ -106,27 +106,25 @@ export function addElementtemparature(dataApi) {
         const dateFormat = dayTitle + ' |  ' + month + ' ' + day
         //rain
         const rain = data.clouds.all + ' %';
+        // Graphic data Hour / Temp
+        arrayHourGraph.push(data.dt_txt)
+        arrayTempGraph.push(data.main.temp)
 
         if (cpt <= nbrAllTemp)
 
-            // Graphic data Hour / Temp
-            arrayHourGraph.push(data.dt_txt)
-            arrayTempGraph.push(data.main.temp)
-            
-
-        if (cpt === 0) {
-            hourFormat = hour + ":" + min
-            skyDarkMod = darkModAll(dataSunSet, hourFormat)
-            imgSky = imageSky(data.weather[0].main, skyDarkMod)
-            addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
-        } else {
-            let dateTime = new Date(data.dt_txt);
-            const [dayTitle, month, day, hour, min] = date(dateTime)
-            hourFormat = hour + ":" + min
-            skyDarkMod = darkModAll(dataSunSet, hourFormat)
-            imgSky = imageSky(data.weather[0].main, skyDarkMod)
-            addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
-        }
+            if (cpt === 0) {
+                hourFormat = hour + ":" + min
+                skyDarkMod = darkModAll(dataSunSet, hourFormat)
+                imgSky = imageSky(data.weather[0].main, skyDarkMod)
+                addElementNowtemperature(imgSky, temperatureMin, temperatureMax, rain)
+            } else {
+                let dateTime = new Date(data.dt_txt);
+                const [dayTitle, month, day, hour, min] = date(dateTime)
+                hourFormat = hour + ":" + min
+                skyDarkMod = darkModAll(dataSunSet, hourFormat)
+                imgSky = imageSky(data.weather[0].main, skyDarkMod)
+                addElementAlltemperature(hourFormat, dateFormat, imgSky, temperatureMin, temperatureMax, rain)
+            }
 
         cpt++;
     }

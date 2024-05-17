@@ -22,6 +22,7 @@
   --primaryColorOp85: #ffffff85;
   --backgroundLinear: linear-gradient(0deg, #2c79c1 0%, #62b8f6 100%);
   --primaryColorText: #fff;
+  --primaryColorCircle: #fff;
   --secondaryColorText: #2e7bc3;
   --citySearchColorText: #000;
   --svgColor: invert(1);
@@ -36,6 +37,7 @@
   --primaryColorOp85: rgba(0, 0, 0, 0.85);
   --backgroundLinear: linear-gradient(0deg, #081118 0%, #1c2f3c 100%);
   --primaryColorText: #fff;
+  --primaryColorCircle: #fff;
   --secondaryColorText: #fff;
   --citySearchColorText: #fff;
   --svgColor: invert(100);
@@ -597,11 +599,11 @@ header {
           header section .today .country .country-select .circle {
             width: 8px;
             height: 8px;
-            border: 1px solid var(--primaryColor);
+            border: 1px solid var(--primaryColorCircle);
             border-radius: 50%;
             margin-left: 10px; }
           header section .today .country .country-select .selected {
-            background-color: var(--primaryColor); }
+            background-color: var(--primaryColorCircle); }
       header section .today .today-warp {
         display: flex;
         flex-direction: column;

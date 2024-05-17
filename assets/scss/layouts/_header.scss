@@ -100,13 +100,13 @@ header {
                     .circle {
                         width: 8px;
                         height: 8px;
-                        border: 1px solid var(--primaryColor);
+                        border: 1px solid var(--primaryColorCircle);
                         border-radius: 50%;
                         margin-left: 10px;
                     }
 
                     .selected {
-                        background-color: var(--primaryColor);
+                        background-color: var(--primaryColorCircle);
                     }
                 }
             }
