@@ -1,8 +1,9 @@
 /**
  * Swipe : gère le défilement horizontal 
- * Les variables initialX, moveX et plannerOffset sont déclarées pour stocker les positions initiales et de déplacement lors de l'interaction tactile.
- * écouteur d'événements  touchstart touchmove
- * @param {*} reverse détermine la direction du défilement. -- boolean true : drag&drop ; false swipe noraml 
+ * change les données des temparature en fonction du swip et de la ville visible
+ * change les données du graphique des temperature en fonction du swipe
+ * écouteur d'événements  touchsend
+ * @param {*} data donnée de l'api openweathermap
  */
 export function swipe(data) {
     const todayHeader = document.querySelector('.today-header')
@@ -17,7 +18,12 @@ export function swipe(data) {
 
         const dayItem = document.querySelector('.day-item')
 
-
+       /**
+        * permet de changer le scrollLeft de l'elment pour affiché les autre ville en swipant 
+        * recupere l'ordre de chauqe element de temperature des ville
+        * @variable  nbrCitySlected est incrémenté qui permettra de swip la prochien ville
+        * & permet d'afficher les données pour les temperatures prochaine & pour les graphique 
+        *  */ 
         if (nbrCitySlected < citySelect.length - 1) {
 
             todayHeader.scrollLeft += todayHeaderOffesWidth - 20
@@ -28,6 +34,7 @@ export function swipe(data) {
             const canvasSlect = dayItem.querySelector('#myChart-' + citySelect[nbrCitySlected].id)
             canvasSlect.classList.add('open-canvas')
 
+            // boucle qui permet de retirer la class open et open-canvas des elements non séléctionnés
             for (const cityNoSelect of citySelect) {
                 if (cityNoSelect.id != citySelect[nbrCitySlected].id) {
                     const citySlectNoOpen = dayTempList.querySelector('#temp' + cityNoSelect.id)
@@ -38,7 +45,9 @@ export function swipe(data) {
                     canvasNoSlect.classList.remove('open-canvas')
                 }
             }
-
+        /**
+         * Une fois que le swip arrive a la derière ville , celui-ci revient au 1er
+         */
         } else {
             todayHeader.scrollLeft = 0
             nbrCitySlected = 0
@@ -48,7 +57,8 @@ export function swipe(data) {
 
             const canvasSlect = dayItem.querySelector('#myChart-' + citySelect[nbrCitySlected].id)
             canvasSlect.classList.add('open-canvas')
-
+            
+            // boucle qui permet de retirer la class open et open-canvas des elements non séléctionnés
             for (const cityNoSelect of citySelect) {
                 if (cityNoSelect.id != citySelect[nbrCitySlected].id) {
                     const citySlectNoOpen = dayTempList.querySelector('#temp' + cityNoSelect.id)

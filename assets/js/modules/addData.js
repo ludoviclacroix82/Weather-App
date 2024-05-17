@@ -4,10 +4,19 @@ import { imageSky } from './imageSky.js'
 import { conversionKelvinCelsius, date } from './conversionData.js'
 import { darkModAll } from './darkMod.js'
 import { graphicTemp } from './graphic.js'
-//import {unsplahApi} from './apiFunction.js'
+import {unsplahApi} from './apiFunction.js'
+
 /**
- * Ajout via Dom les data dans le today-wrap
+ * Ajout des donné de l'api sur la zone current temperature
+ * @param {*} city nom de la ville
  * @param {*} date 
+ * @param {*} currentTemp la temperature current
+ * @param {*} sky donnée sur l'etait du ciel
+ * @param {*} wind donnée sur le vent
+ * @param {*} rain donnée sur la pluie
+ * @param {*} humidity  donnée de l'humidité
+ * @param {*} pressure donnée de la pression
+ * @param {*} imgSky icone du ciel
  */
 export function addElementCurrentTemperature(city, date, currentTemp, sky, wind, rain, humidity, pressure, imgSky) {
 
@@ -82,10 +91,11 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
     }
 
 }
-
+/**
+ * Ajout des donné de temparature tous les 3h 
+ * @param {*} dataApi donnée recupere par l'api
+ */
 export function addElementtemparature(dataApi) {
-
-    console.log(dataApi);
 
     let cpt = 0
     const nbrAllTemp = 10
@@ -137,7 +147,15 @@ export function addElementtemparature(dataApi) {
     graphicTemp(city, arrayTempGraph, arrayHourGraph);
 
 }
-
+/**
+ * Affiche dans les temparateur celle current
+ * @param {*} cpt compteur pour gerer la visibilité via css
+ * @param {*} city le nom de la ville
+ * @param {*} imgSky icone du status du ciel
+ * @param {*} tempMin temperature minimum
+ * @param {*} tempMax temperature maximum
+ * @param {*} rain donnée de la pluis
+ */
 export function addElementNowtemperature(cpt, city, imgSky, tempMin, tempMax, rain) {
 
     const daytemp = document.querySelector('.day-temp')
@@ -168,6 +186,16 @@ export function addElementNowtemperature(cpt, city, imgSky, tempMin, tempMax, ra
 
 }
 
+/**
+ * Affiche les temparteure avenir
+ * @param {*} city nom de la ville
+ * @param {*} hour heure (tous les 3:00)
+ * @param {*} city le nom de la ville
+ * @param {*} imgSky icone du status du ciel
+ * @param {*} tempMin temperature minimum
+ * @param {*} tempMax temperature maximum
+ * @param {*} rain donnée de la pluis
+ */
 export function addElementAlltemperature(city, hour, date, imgSky, tempMin, tempMax, rain) {
 
     const allTempElem = document.querySelector('#allTemp')

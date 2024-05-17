@@ -3,6 +3,9 @@ import { cityListDelete } from './deleteData.js'
 import { cityDelete } from './deleteData.js'
 import { showAddCity } from '../menu.js'
 
+/**
+ * affiche les villes lors de la recherche via localstorage
+ */
 export function showListCity() {
 
     const listCityElem = document.querySelector('.listCity')
@@ -33,7 +36,11 @@ export function showListCity() {
         })
     }
 }
-
+/**
+ * affiche un messaged'erreur quand la ville n'est pas trouvé 
+ * la supprime du localstorage
+ * @param {*} city nom de la ville
+ */
 export function showErrorFindCity(city) {
     const todayHeader = document.querySelector('.today-header')
     const error = todayHeader.querySelector('.error')

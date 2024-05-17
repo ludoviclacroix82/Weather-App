@@ -12,6 +12,12 @@ const apiUrlUnsplash = (city, apiKey) => 'https://api.unsplash.com/search/photos
 
 const unitWind = 'km/h'
 
+
+/**
+ * Recuperation des donnée de l'api openweathermap
+ * @param {*} city nom de la ville
+ * @param {*} dateCurrent la date du jour
+ */
 export function showTemperature(city, dateCurrent) {
     fetch(apiUrlWeather(city, apiKey))
         .then(response => {
@@ -52,24 +58,11 @@ export function showTemperature(city, dateCurrent) {
             console.error('Erreur:', error);
         });
 }
-
-/*export function showAllTemperature(city, dateCurrent) {
-    fetch(apiUrlWeather(city, apiKey))
-        .then(response => {
-            if (!response.ok) {
-            }
-            return response.json();
-        })
-        .then(data => {
-
-            addElementtemparature(data)
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-        });
-}*/
-
-/*export function unsplahApi(city) {
+/**
+ *  recuperation des donnée de l'api unsplash
+ * @param {*} city nom de la ville
+ */
+export function unsplahApi(city) {
     fetch(apiUrlUnsplash = (city, apiKeyUnsplash))
         .then(response => {
             if (!response.ok) {
@@ -79,9 +72,9 @@ export function showTemperature(city, dateCurrent) {
         })
         .then(data => {
 
-            console.log(data.results.regular);
+            return data.results.regular
         })
         .catch(error => {
             console.error('Erreur:', error);
         });
-}*/
+}
