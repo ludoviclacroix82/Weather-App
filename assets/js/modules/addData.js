@@ -4,7 +4,7 @@ import { imageSky } from './imageSky.js'
 import { conversionKelvinCelsius, date } from './conversionData.js'
 import { darkModAll } from './darkMod.js'
 import { graphicTemp } from './graphic.js'
-
+//import {unsplahApi} from './apiFunction.js'
 /**
  * Ajout via Dom les data dans le today-wrap
  * @param {*} date 
@@ -19,6 +19,8 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
     today.classList.add('today')
 
     today.style.width = todayHeader.offsetWidth - 40 + 'px'
+
+    //const imgUnsplash = unsplahApi(city)
 
     today.innerHTML = `
                 <div class="country">

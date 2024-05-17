@@ -14,7 +14,7 @@ export function darkMod(dataApi) {
     const sunSetFormat = hour + ":" + min
 
 
-    if (targetDate < sunSetFormat && targetDate > "06:00") {
+    if (targetDate < sunSetFormat && targetDate > "08:00") {
         modeImage = 'day'
         body.classList.add('ligther')
         body.classList.remove('dark')
@@ -23,6 +23,7 @@ export function darkMod(dataApi) {
         body.classList.add('dark')
         body.classList.remove('ligther')
     }
+    console.log(modeImage +'//'+targetDate);
 
     return modeImage
 }
@@ -52,7 +53,7 @@ export function convertTimeZone(date, timeZone) {
     let currentOffsetMinutes = date.getTimezoneOffset()
     let targetTimezoneOffsetSeconds = timeZone + (2 * 3600)
     let targetOffsetMinutes = currentOffsetMinutes - (targetTimezoneOffsetSeconds / 60)
-    let targetTime = new Date(date.getTime() + (targetOffsetMinutes * 60 * 1000))
+    let targetTime = new Date(date.getTime() + (targetOffsetMinutes))
 
     return targetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }

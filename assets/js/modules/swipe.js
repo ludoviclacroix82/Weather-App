@@ -16,7 +16,7 @@ export function swipe(data) {
 
     const dateCurrent = new Date();
 
-    todayHeader.addEventListener('touchstart', event => {
+    todayHeader.addEventListener('touchend', event => {
         //console.log(nbrCitySlected + '//' + nbrCity);
         const arrayCity = Array.from(getItem('City'))
         const dayTempList = document.querySelector('.day-temp')
