@@ -34,15 +34,15 @@ WeatherApp is a weather application that allows users to check current weather c
 ##### API Keys in apiFunction.js
 
 ```javascript
-let apiKeyWeather = '557f3c9c41c52d8aeca9d72c7c4fa0ab';
-let apiKeyUnsplash = 'R2kdgCPmV-BwdC34ezEjIsMCSxuL9uqLlsRoCM9NSB4';
+let apiKeyWeather = 
+let apiKeyUnsplash = 
 ```
 
 Replace them with your own keys:
 
 ```javascript
-let apiKeyWeather = 'YOUR_OPENWEATHERMAP_API_KEY';
-let apiKeyUnsplash = 'YOUR_UNSPLASH_API_KEY';
+let apiKeyWeather = 'YOUR_OPENWEATHERMAP_API_KEY'
+let apiKeyUnsplash = 'YOUR_UNSPLASH_API_KEY'
 ```
 
 That's it! Now, the application will use your customized API keys to fetch weather data and images from Unsplash.
