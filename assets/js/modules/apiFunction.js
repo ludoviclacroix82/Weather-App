@@ -4,10 +4,11 @@ import { date, conversionKelvinCelsius, conversionWind } from './conversionData.
 import { showErrorFindCity } from './showData.js'
 import { darkMod } from './darkMod.js';
 
+//key Api
 const apiKey = '557f3c9c41c52d8aeca9d72c7c4fa0ab';
-const apiUrlWeather = (city, apiKey) => 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey
-
 const apiKeyUnsplash = 'R2kdgCPmV-BwdC34ezEjIsMCSxuL9uqLlsRoCM9NSB4'
+//Url Api + params
+const apiUrlWeather = (city, apiKey) => 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + apiKey
 const apiUrlUnsplash = (city, apiKey) => 'https://api.unsplash.com/search/photos?query=' + city + '&client_id=' + apiKey
 
 const unitWind = 'km/h'

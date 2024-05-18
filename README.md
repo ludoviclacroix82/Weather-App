@@ -22,6 +22,32 @@ WeatherApp is a weather application that allows users to check current weather c
 - **[OpenWeatherMap API](https://openweathermap.org/appid):** Used to fetch current weather conditions and forecasts.
 - **[Unsplash API](https://unsplash.com/developers):** Used to fetch dynamic background images based on the current weather conditions.
 
+#### Instructions for Adding API Keys
+
+| Step | Action                                                                                     |
+|------|-------------------------------------------------------------------------------------------|
+| 1    | Open the `apiFunction.js` file in your text editor or IDE.                                  |
+| 2    | Locate the lines containing the API keys for OpenWeatherMap and Unsplash.                   |
+| 3    | Replace the existing API keys with your own keys.                                           |
+| 4    | Save the file after making the changes.                                                     |
+
+##### API Keys in apiFunction.js
+
+\```javascript
+let apiKeyWeather = '557f3c9c41c52d8aeca9d72c7c4fa0ab';
+let apiKeyUnsplash = 'R2kdgCPmV-BwdC34ezEjIsMCSxuL9uqLlsRoCM9NSB4';
+\```
+
+Replace them with your own keys:
+
+\```javascript
+let apiKeyWeather = 'YOUR_OPENWEATHERMAP_API_KEY';
+let apiKeyUnsplash = 'YOUR_UNSPLASH_API_KEY';
+\```
+
+That's it! Now, the application will use your customized API keys to fetch weather data and images from Unsplash.
+
+
 ## Design
 
 The design of WeatherApp was created using Figma. You can view the design and prototype [here](https://www.figma.com/design/mWP6f9rS0jNn6fATkMbFLN/Weather-Mobile-App-Design-(Community)?node-id=19-3463&t=BWvGIFACbL55FzyF-0).
