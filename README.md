@@ -17,7 +17,7 @@ WeatherApp is a weather application that allows users to check current weather c
   - **Fetch API:** To retrieve weather data from the weather API.
   - **LocalStorage:** To save user preferences and favorite locations.
 
-# APIs Used
+## APIs Used
 
 - **[OpenWeatherMap API](https://openweathermap.org/appid):** Used to fetch current weather conditions and forecasts.
 - **[Unsplash API](https://unsplash.com/developers):** Used to fetch dynamic background images based on the current weather conditions.
@@ -25,7 +25,7 @@ WeatherApp is a weather application that allows users to check current weather c
 
 ## Preview
 
-![Light Mode](ressources/lightMode.png) | ![Dark Mode](ressources/darkMode.png) | ![Chart](ressources/chart.png) | ![Add City](ressources/addCity.png)
+![Light Mode](ressources/ligthMode.png) | ![Dark Mode](ressources/darkMode.png) | ![Chart](ressources/chart.png) | ![Add City](ressources/addCity.png)
 :--------------------------------------:|:-------------------------------------:|:-----------------------------:|:-----------------------------------:
 Light Mode                              | Dark Mode                             | Temperature Chart             | Add City
 
