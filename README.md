@@ -50,6 +50,9 @@ Light Mode                              | Dark Mode                             
 - This settings zone can include options such as choosing the temperature unit (Celsius or Fahrenheit), the language of the application, displaying time in 12-hour or 24-hour format, etc.
 - Use LocalStorage to store user preferences so that they persist between sessions.
 
+### 3. Responsive Design for Desktop Devices:
+- Optimize the layout and features to adapt to different screen resolutions and window sizes on desktop computers.
+
 ## License
 This project is not accompanied by a specific license and is therefore considered to be under copyright by default. You are free to view, modify, and distribute the code of this project for non-commercial purposes. However, please note that you do not have explicit permission to use this code in commercial or proprietary projects. If you wish to use this code in such circumstances, please contact me to obtain their authorization.
 
