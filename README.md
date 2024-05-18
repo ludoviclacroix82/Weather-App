@@ -25,7 +25,7 @@ WeatherApp is a weather application that allows users to check current weather c
 
 ## Preview
 
-![Light Mode](resources/lightMode.png) | ![Dark Mode](resources/darkMode.png) | ![Chart](resources/chart.png) | ![Add City](resources/addCity.png)
+![Light Mode](ressources/lightMode.png) | ![Dark Mode](ressources/darkMode.png) | ![Chart](ressources/chart.png) | ![Add City](ressources/addCity.png)
 :--------------------------------------:|:-------------------------------------:|:-----------------------------:|:-----------------------------------:
 Light Mode                              | Dark Mode                             | Temperature Chart             | Add City
 
