@@ -58,7 +58,7 @@ The design of WeatherApp was created using Figma. You can view the design and pr
 :--------------------------------------:|:-------------------------------------:|:-----------------------------:|:-----------------------------------:
 Light Mode                              | Dark Mode                             | Temperature Chart             | Add City
 
-## Liens Utiles
+## Useful Links
 
 - **GitHub Repository:** [https://github.com/ludoviclacroix82/Weather-App](https://github.com/ludoviclacroix82/Weather-App)
 - **GitHub Pages:** [https://ludoviclacroix82.github.io/Weather-App/](https://ludoviclacroix82.github.io/Weather-App/)
