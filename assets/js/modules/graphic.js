@@ -7,7 +7,7 @@ import { conversionKelvinCelsius, date } from "./conversionData.js";
  * @param {Array} dataGraphTemp données des temperatures prochaines
  * @param {Array} dataGraphHour données des heures des temperatures prochaines
  */
-export function graphicTemp(city, dataGraphTemp, dataGraphHour) {
+export function graphicTemp(city,arrayChart) {
 
     const dayItemElem = document.querySelector('.day-item')
     /**
@@ -27,22 +27,11 @@ export function graphicTemp(city, dataGraphTemp, dataGraphHour) {
     const ctx = document.getElementById('myChart-' + city);
 
     /**
-     * @array arraytemp récupére les tempaerature pour chartjs
+     * @array arrayTemp récupére les tempaerature pour chartjs
      * @array arrayHour récupère les hours de chaque temperatures pour chatrjs
      */
-    const arraytemp = []
-    const arrayHour = []
-
-    for (const dataTemp of dataGraphTemp) {
-        const tempFormat = conversionKelvinCelsius(dataTemp)
-        arraytemp.push(tempFormat)
-    }
-
-    for (const dataHour of dataGraphHour) {
-        const [dayTitle, month, day, hour, min] = date(new Date(dataHour))
-        let hourFormat = hour + ":" + min
-        arrayHour.push(hourFormat)
-    }
+    const arrayTemp = arrayChart.map(item => item.temp);
+    const arrayHour = arrayChart.map(item => item.hour);
 
     /**
      * parametre chartjs pour le graphique
@@ -53,7 +42,7 @@ export function graphicTemp(city, dataGraphTemp, dataGraphHour) {
             labels: arrayHour,
             datasets: [{
                 label: 'temperatures',
-                data: arraytemp,
+                data: arrayTemp,
                 borderWidth: 1,
                 borderColor: '#fff',
                 pointStyle: false,
@@ -64,7 +53,7 @@ export function graphicTemp(city, dataGraphTemp, dataGraphHour) {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        color: '#fff'
+                        color: '#fff',
                     }
 
                 },
@@ -79,7 +68,9 @@ export function graphicTemp(city, dataGraphTemp, dataGraphHour) {
                 legend: {
                     display: false,
                 }
-            }
+            },
+            responsive: true,
+            maintainAspectRatio: false
         }
     });
 }

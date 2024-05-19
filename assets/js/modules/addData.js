@@ -103,8 +103,7 @@ export function addElementtemparature(dataApi) {
     const dateCurrent = new Date();
     let dataSunSet = dataApi.city.sunset
     let dataList = dataApi.list
-    let arrayTempGraph = []
-    let arrayHourGraph = []
+    let arrayChart = []
 
     const city = dataApi.city.name
 
@@ -122,8 +121,10 @@ export function addElementtemparature(dataApi) {
         //rain
         const rain = data.clouds.all + ' %';
         // Graphic data Hour / Temp
-        arrayHourGraph.push(data.dt_txt)
-        arrayTempGraph.push(data.main.temp)
+        const [dayTitleChart, monthChart, dayChart, hourChart, minChart] = date(new Date(data.dt_txt))
+        let chartHourFormat = hourChart + ":" + minChart
+        const chartTemperature = conversionKelvinCelsius(data.main.temp_min)
+        arrayChart.push({'hour':chartHourFormat,"temp":chartTemperature})
 
         if (cpt <= nbrAllTemp)
 
@@ -144,7 +145,7 @@ export function addElementtemparature(dataApi) {
         cpt++;
 
     }
-    graphicTemp(city, arrayTempGraph, arrayHourGraph);
+    graphicTemp(city, arrayChart);
 
 }
 /**
