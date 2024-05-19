@@ -26,13 +26,13 @@ header {
             }
 
             .today-header {
-                width: 40% !important;
-                height: 30% !important;
+                width: 51% !important;
+                height: 100% !important;
             }
 
             .today-main {
-                width: 50% !important;
-                height: 30% !important;
+                width: 51% !important;
+                height: 100% !important;
 
                 .temp {
                     font-size: 3rem !important;
@@ -120,13 +120,19 @@ header {
                 align-items: center;
                 width: 100%;
                 height: 70%;
-
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin-top: 30px;
+                &::before{
+                    background-color: red;
+                }
                 .today-header {
                     width: 100%;
-                    height: 45%;
+                    height: 46%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    background-color: var(--backgroundCOlorWrap);
 
                     img {
                         width: 15vh;
@@ -140,14 +146,14 @@ header {
                 .today-main {
                     @extend .poppins-regular;
                     width: 100%;
-                    height: 40%;
+                    height: 55%;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
                     font-size: 1rem;
                     color: var(--primaryColorText);
-                    margin-top: 10px;
+                    background-color: var(--backgroundCOlorWrap);
 
                     .date {
                         width: 50%;
@@ -195,8 +201,8 @@ header {
             .today-footer {
                 width: 90%;
                 height: 30%;
-                margin-top: 5%;
-                border-top: 1px solid var(--primaryColor);
+                //margin-top: 5%;
+                //border-top: 1px solid var(--primaryColor);
                 padding: 10px;
                 display: flex;
                 flex-wrap: wrap;

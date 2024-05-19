@@ -1,7 +1,7 @@
 import { getItem } from './modules/localstorage.js'
 import { swipe } from './modules/swipe.js'
 import { showAddCity } from './menu.js'
-import { showTemperature} from './modules/apiFunction.js'
+import { showTemperature , unsplashApi} from './modules/apiFunction.js'
 import { showListCity } from './modules/showData.js'
 
 const dateCurrent = new Date();

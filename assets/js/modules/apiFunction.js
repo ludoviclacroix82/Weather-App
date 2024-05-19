@@ -1,4 +1,4 @@
-import { addElementCurrentTemperature, addElementtemparature } from './addData.js'
+import { addElementCurrentTemperature, addElementtemparature, addImgUnsplsh } from './addData.js'
 import { imageSky } from './imageSky.js'
 import { date, conversionKelvinCelsius, conversionWind } from './conversionData.js'
 import { showErrorFindCity } from './showData.js'
@@ -29,6 +29,9 @@ export function showTemperature(city, dateCurrent) {
             return response.json();
         })
         .then(data => {
+
+            //country 
+            const country = data.city.country
             //image Sky 
             const skyDarkMod = darkMod(data);
             const imgSky = imageSky(data.list[0].weather[0].main, skyDarkMod);
@@ -54,6 +57,7 @@ export function showTemperature(city, dateCurrent) {
 
             addElementCurrentTemperature(city, dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky);
             addElementtemparature(data)
+            unsplashApi(city, country)
         })
         .catch(error => {
             console.error('Erreur:', error);
@@ -63,8 +67,8 @@ export function showTemperature(city, dateCurrent) {
  *  recuperation des donnée de l'api unsplash
  * @param {*} city nom de la ville
  */
-export function unsplahApi(city) {
-    fetch(apiUrlUnsplash = (city, apiKeyUnsplash))
+export function unsplashApi(city, country) {
+    fetch(apiUrlUnsplash(city, apiKeyUnsplash))
         .then(response => {
             if (!response.ok) {
                 console.log('no found')
@@ -72,8 +76,10 @@ export function unsplahApi(city) {
             return response.json();
         })
         .then(data => {
+            console.log(data.results[0].urls.regular);
 
-            return data.results.regular
+            addImgUnsplsh(data.results[0].urls.regular, city)
+            //return data.results[0].urls.regular
         })
         .catch(error => {
             console.error('Erreur:', error);

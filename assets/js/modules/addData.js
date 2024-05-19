@@ -4,7 +4,6 @@ import { imageSky } from './imageSky.js'
 import { conversionKelvinCelsius, date } from './conversionData.js'
 import { darkModAll } from './darkMod.js'
 import { graphicTemp } from './graphic.js'
-import {unsplahApi} from './apiFunction.js'
 
 /**
  * Ajout des donné de l'api sur la zone current temperature
@@ -228,4 +227,11 @@ export function addElementAlltemperature(city, hour, date, imgSky, tempMin, temp
     articletemp.classList.add('day-temp-list')
     dayTempList.appendChild(articletemp);
 
+}
+
+export function addImgUnsplsh(imgUrl,city){
+    const allCityElem = document.querySelector('#allCity')
+    const warpElem = allCityElem.querySelector('#wrap'+city)
+    warpElem.style.backgroundImage = 'url(' +  imgUrl +')'
+    console.log(warpElem);
 }

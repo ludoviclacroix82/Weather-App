@@ -21,6 +21,7 @@
   --secondaryColor: #2e7bc3;
   --primaryColorOp85: #ffffff85;
   --backgroundLinear: linear-gradient(0deg, #2c79c1 0%, #62b8f6 100%);
+  --backgroundCOlorWrap:rgba(44, 121, 193, 0.8);
   --primaryColorText: #fff;
   --primaryColorCircle: #fff;
   --secondaryColorText: #2e7bc3;
@@ -36,6 +37,7 @@
   --secondaryColor: #09131a;
   --primaryColorOp85: rgba(0, 0, 0, 0.85);
   --backgroundLinear: linear-gradient(0deg, #081118 0%, #1c2f3c 100%);
+  --backgroundCOlorWrap:rgba(8, 17, 24, 0.8);
   --primaryColorText: #fff;
   --primaryColorCircle: #fff;
   --secondaryColorText: #fff;
@@ -518,11 +520,11 @@ header {
     header .minimize-today-wrap .today-warp img {
       width: 13vh !important; }
     header .minimize-today-wrap .today-warp .today-header {
-      width: 40% !important;
-      height: 30% !important; }
+      width: 51% !important;
+      height: 100% !important; }
     header .minimize-today-wrap .today-warp .today-main {
-      width: 50% !important;
-      height: 30% !important; }
+      width: 51% !important;
+      height: 100% !important; }
       header .minimize-today-wrap .today-warp .today-main .temp {
         font-size: 3rem !important; }
       header .minimize-today-wrap .today-warp .today-main .date {
@@ -581,27 +583,33 @@ header {
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 70%; }
+        height: 70%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 30px; }
+        header section .today .today-warp::before {
+          background-color: red; }
         header section .today .today-warp .today-header {
           width: 100%;
-          height: 45%;
+          height: 46%;
           display: flex;
           justify-content: center;
-          align-items: center; }
+          align-items: center;
+          background-color: var(--backgroundCOlorWrap); }
           header section .today .today-warp .today-header img {
             width: 15vh; }
           header section .today .today-warp .today-header .svg-today-header {
             filter: var(--svgColor); }
         header section .today .today-warp .today-main {
           width: 100%;
-          height: 40%;
+          height: 55%;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           font-size: 1rem;
           color: var(--primaryColorText);
-          margin-top: 10px; }
+          background-color: var(--backgroundCOlorWrap); }
           header section .today .today-warp .today-main .date {
             width: 50%;
             height: 20px;
@@ -634,8 +642,6 @@ header {
       header section .today .today-footer {
         width: 90%;
         height: 30%;
-        margin-top: 5%;
-        border-top: 1px solid var(--primaryColor);
         padding: 10px;
         display: flex;
         flex-wrap: wrap;
