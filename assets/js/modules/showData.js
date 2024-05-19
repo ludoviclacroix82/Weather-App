@@ -30,6 +30,7 @@ export function showListCity() {
         deleteCity.classList.add('delete')
         deleteCity.appendChild(deleteCityImg)
         deleteCityImg.src = './assets/images/icones/radix-icons--cross-1.svg'
+        deleteCityImg.classList.add('svg-search')
 
         deleteCity.addEventListener('click', event => {
             cityListDelete(city)

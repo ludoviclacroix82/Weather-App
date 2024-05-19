@@ -1,6 +1,9 @@
 .svg {
     filter: var(--svgColor);
 }
+.svg-search{
+    filter: var(--svgColorSearch);
+}
 
 .minimize-header {
     height: 42dvh !important;

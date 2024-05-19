@@ -12,6 +12,7 @@ $ligtherSecondaryColorText : #2e7bc3;
 $ligtherCitySearchColorText : #000;
 
 $ligtherSvg : invert(1);
+$ligtherSvgSearch : invert(0);
 $ligtherNowBackground : #60b5f4;
 
 $ligtherSvgFooter : hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
@@ -33,10 +34,11 @@ $darkPrimaryColorText: #fff;
 $darkSecondaryColorText: #fff;
 $darkCitySearchColorText: #fff;
 
-$darkSvg: invert(100);
+$darkSvg: invert(1);
+$darkSvgSearch: invert(1);
 $darkNowBackground: #1c2f3c ;
 
-$darkSvgFooter: invert(100);
+$darkSvgFooter: invert(1);
 
 $darkButtonHover: #fff;
 

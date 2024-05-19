@@ -27,6 +27,7 @@
   --secondaryColorText: #2e7bc3;
   --citySearchColorText: #000;
   --svgColor: invert(1);
+  --svgColorSearch: invert(0);
   --nowBackground: #60b5f4;
   --svgFooter: hue-rotate(208.99deg) saturate(61.83%) brightness(47.25%);
   --buttonHover: #60b5f4; }
@@ -42,9 +43,10 @@
   --primaryColorCircle: #fff;
   --secondaryColorText: #fff;
   --citySearchColorText: #fff;
-  --svgColor: invert(100);
+  --svgColor: invert(1);
+  --svgColorSearch: invert(1);
   --nowBackground: #1c2f3c;
-  --svgFooter: invert(100);
+  --svgFooter: invert(1);
   --buttonHover: #fff; }
 
 *, *::before, *::after {
@@ -404,7 +406,7 @@ input[type=text] {
   width: 100%;
   height: 25px;
   background-color: var(--primaryColor);
-  color: var(--searchColorText);
+  color: var(--citySearchColorText);
   border: 0;
   border-radius: 30px;
   padding: 10px;
@@ -502,6 +504,9 @@ footer {
 
 .svg {
   filter: var(--svgColor); }
+
+.svg-search {
+  filter: var(--svgColorSearch); }
 
 .minimize-header {
   height: 42dvh !important; }
