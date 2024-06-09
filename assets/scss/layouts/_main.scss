@@ -4,7 +4,7 @@ main {
     overflow: hidden;
     background-color: var(--primaryColor);
 
-    @include tablet{
+    @include tablet {
         width: 30%;
         height: 30%;
         margin: 0 auto;
@@ -21,6 +21,9 @@ main {
         overflow-x: auto;
         overflow-y: hidden;
 
+        scrollbar-width: thin;
+        scrollbar-color: var(--secondaryColor)var(--bodyColor);
+
         h2 {
             @extend .poppins-semibold;
             font-size: 1rem;
@@ -36,13 +39,14 @@ main {
             display: flex;
             flex-direction: row;
 
-            .open-temp-city{
-                display:flex !important;
+            .open-temp-city {
+                display: flex !important;
             }
+
             .day-temp-city {
                 flex-direction: row;
                 display: none;
-                
+
                 %article {
                     width: 85px;
                     height: 100%;
@@ -113,6 +117,10 @@ main {
         overflow: hidden;
         padding: 10px 20px !important;
         justify-content: normal !important;
+
+        @include tablet {
+            width: 30%;
+        }
 
         .country {
             z-index: 6;

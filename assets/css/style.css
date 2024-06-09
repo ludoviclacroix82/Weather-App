@@ -445,6 +445,9 @@ nav {
   flex-direction: row;
   justify-content: center;
   align-items: center; }
+  @media only screen and (min-width: 738px) {
+    nav {
+      width: 30%; } }
   nav .navigation {
     width: 80%;
     display: flex;
@@ -536,7 +539,7 @@ header {
       margin: 0 auto; } }
   header .minimize-today-wrap .today-warp {
     flex-direction: row !important;
-    height: 60%; }
+    height: 80%; }
     header .minimize-today-wrap .today-warp img {
       width: 13vh !important; }
     header .minimize-today-wrap .today-warp .today-header {
@@ -551,6 +554,9 @@ header {
         margin-bottom: 10px !important; }
   header .minimize-today-wrap .today-footer {
     height: 60%; }
+    @media only screen and (min-width: 738px) {
+      header .minimize-today-wrap .today-footer {
+        display: none !important; } }
   header .minimize-today-wrap .date {
     width: 90% !important; }
   header section {
@@ -706,7 +712,9 @@ main {
     align-items: baseline;
     padding: 20px;
     overflow-x: auto;
-    overflow-y: hidden; }
+    overflow-y: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondaryColor) var(--bodyColor); }
     main section h2 {
       font-size: 1rem;
       color: var(--primaryColorText); }
@@ -764,6 +772,9 @@ main {
     overflow: hidden;
     padding: 10px 20px !important;
     justify-content: normal !important; }
+    @media only screen and (min-width: 738px) {
+      main .addCountry {
+        width: 30%; } }
     main .addCountry .country {
       z-index: 6;
       width: 100%;

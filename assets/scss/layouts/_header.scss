@@ -1,7 +1,8 @@
 .svg {
     filter: var(--svgColor);
 }
-.svg-search{
+
+.svg-search {
     filter: var(--svgColorSearch);
 }
 
@@ -18,7 +19,7 @@ header {
     align-items: baseline;
     overflow: hidden;
 
-    @include tablet{
+    @include tablet {
         width: 30%;
         height: 60%;
         margin: 0 auto;
@@ -28,7 +29,7 @@ header {
         .today-warp {
 
             flex-direction: row !important;
-            height: 60%;
+            height: 80%;
 
             img {
                 width: 13vh !important;
@@ -37,6 +38,7 @@ header {
             .today-header {
                 width: 51% !important;
                 height: 100% !important;
+
             }
 
             .today-main {
@@ -51,10 +53,14 @@ header {
                     margin-bottom: 10px !important;
                 }
             }
+            
         }
 
         .today-footer {
             height: 60%;
+            @include tablet{
+                display: none !important;
+            }
         }
 
         .date {
@@ -132,9 +138,11 @@ header {
                 background-repeat: no-repeat;
                 background-size: cover;
                 margin-top: 30px;
-                &::before{
+
+                &::before {
                     background-color: red;
                 }
+
                 .today-header {
                     width: 100%;
                     height: 46%;
