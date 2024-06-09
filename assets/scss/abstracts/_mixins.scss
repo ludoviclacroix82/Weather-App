@@ -1,0 +1,6 @@
+ // Mixin pour les styles tablette
+ @mixin tablet {
+    @media only screen and (min-width: 738px) {
+      @content;
+    }
+  }
