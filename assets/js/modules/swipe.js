@@ -68,6 +68,6 @@ export function swipe(data) {
         }
     };
 
-    todayHeader.addEventListener('touchend', handleSwipe);
+    //todayHeader.addEventListener('touchend', handleSwipe);
     todayHeader.addEventListener('click', handleSwipe);
 }
