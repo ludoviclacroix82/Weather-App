@@ -4,6 +4,12 @@ main {
     overflow: hidden;
     background-color: var(--primaryColor);
 
+    @include tablet{
+        width: 30%;
+        height: 30%;
+        margin: 0 auto;
+    }
+
     section {
         height: 100%;
         background-color: var(--secondaryColor);

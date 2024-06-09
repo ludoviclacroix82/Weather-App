@@ -5,6 +5,11 @@
 footer {
     width: 100%;
     height: 10dvh;
+    @include tablet{
+        width: 30%;
+        height: 10%;
+        margin: 0 auto;
+    }
 
     .minimize{
         display: block !important;

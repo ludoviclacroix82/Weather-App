@@ -18,6 +18,12 @@ header {
     align-items: baseline;
     overflow: hidden;
 
+    @include tablet{
+        width: 30%;
+        height: 60%;
+        margin: 0 auto;
+    }
+
     .minimize-today-wrap {
         .today-warp {
 

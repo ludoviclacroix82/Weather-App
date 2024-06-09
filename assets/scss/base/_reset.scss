@@ -21,6 +21,12 @@ body {
   font-family: sans-serif;
   font-size: 16px;
   background-color: var(--bodyColor);
+  margin: 0 auto;
+
+  @include tablet{
+    width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 // Réinitialisation des éléments de liste
