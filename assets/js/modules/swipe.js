@@ -9,6 +9,7 @@ export function swipe(data) {
     const todayHeader = document.querySelector('.today-header');
     const todayHeaderOffesWidth = todayHeader.offsetWidth;
     let nbrCitySlected = 0;
+    let touchEndFlag = false;  // Flag to indicate a touch event
 
     const dateCurrent = new Date();
 
@@ -68,6 +69,16 @@ export function swipe(data) {
         }
     };
 
-    //todayHeader.addEventListener('touchend', handleSwipe);
-    todayHeader.addEventListener('click', handleSwipe);
+    todayHeader.addEventListener('touchend', event => {
+        touchEndFlag = true;  // Set the flag on touchend
+        handleSwipe();
+    });
+
+    todayHeader.addEventListener('click', event => {
+        if (touchEndFlag) {
+            touchEndFlag = false;  // Reset the flag
+        } else {
+            handleSwipe();
+        }
+    });
 }
