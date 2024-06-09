@@ -94,7 +94,7 @@ export function addElementCurrentTemperature(city, date, currentTemp, sky, wind,
  * Ajout des donné de temparature tous les 3h 
  * @param {*} dataApi donnée recupere par l'api
  */
-export function addElementtemparature(dataApi) {
+export function addElementtemparature(dataApi,cptCity) {
 
     let cpt = 0
     const nbrAllTemp = 10
@@ -131,7 +131,7 @@ export function addElementtemparature(dataApi) {
                 hourFormat = hour + ":" + min
                 skyDarkMod = darkModAll(dataSunSet, hourFormat)
                 imgSky = imageSky(data.weather[0].main, skyDarkMod)
-                addElementNowtemperature(cpt, city, imgSky, temperatureMin, temperatureMax, rain)
+                addElementNowtemperature(cptCity, city, imgSky, temperatureMin, temperatureMax, rain)
             } else {
                 let dateTime = new Date(data.dt_txt);
                 const [dayTitle, month, day, hour, min] = date(dateTime)
@@ -167,6 +167,7 @@ export function addElementNowtemperature(cpt, city, imgSky, tempMin, tempMax, ra
     if (cpt === 0)
         dayTempList.classList.add('open')
 
+    console.log(cpt);
 
     //const dayNow = daytempListNow.querySelector('.now')
     const articletemp = document.createElement('article');

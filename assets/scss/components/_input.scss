@@ -9,4 +9,7 @@ input[type=text]{
     border-radius: 30px;
     padding: 10px;
     font-size: 0.85rem;
+    &::first-letter{
+        text-transform: uppercase;
+    }
 }

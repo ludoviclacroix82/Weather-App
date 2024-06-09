@@ -39,9 +39,7 @@ main {
             display: flex;
             flex-direction: row;
 
-            &:not(:first-of-type) {
-                display: none;
-            }
+
 
             .open-temp-city {
                 display: flex !important;

@@ -12,6 +12,7 @@ const apiUrlWeather = (city, apiKey) => 'https://api.openweathermap.org/data/2.5
 const apiUrlUnsplash = (city, apiKey) => 'https://api.unsplash.com/search/photos?query=' + city + '&client_id=' + apiKey
 
 const unitWind = 'km/h'
+let cpt = 0
 
 
 /**
@@ -56,8 +57,10 @@ export function showTemperature(city, dateCurrent) {
             const dateFormat = dayTitle + ' |  ' + month + ' ' + day;
 
             addElementCurrentTemperature(city, dateFormat, temperature, descriptionSky, wind, rain, humidity, pressure, imgSky);
-            addElementtemparature(data)
+            addElementtemparature(data,cpt)
             unsplashApi(city, country)
+
+            cpt ++
         })
         .catch(error => {
             console.error('Erreur:', error);
